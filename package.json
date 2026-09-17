@@ -1,0 +1,21 @@
+{
+  "name": "ici-privacy-portal",
+  "version": "2.0.0",
+  "description": "Portal de Políticas de Privacidad para las aplicaciones de ICI Laboratories",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ICI-Laboratories/privacyset.git"
+  },
+  "author": "ICI Laboratories",
+  "license": "MIT",
+  "dependencies": {
+    "astro": "^7.3.3"
+  }
+}

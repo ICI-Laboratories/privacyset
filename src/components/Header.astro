@@ -1,0 +1,60 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+
+interface Props {
+  currentSlug?: string;
+}
+
+const { currentSlug } = Astro.props;
+---
+
+<header class="topbar">
+  <div class="container topbar-content">
+    <a href="/" class="brand-link" aria-label="ICI Laboratories - Portal de Privacidad">
+      <div class="brand-icon" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+      </div>
+      <span class="brand-title">ICI Laboratories</span>
+      <span class="brand-badge">Privacidad</span>
+    </a>
+
+    <div class="topbar-actions">
+      {currentSlug && (
+        <a href="/" class="nav-back-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+          <span>Todas las apps</span>
+        </a>
+      )}
+      <ThemeToggle />
+    </div>
+  </div>
+</header>
+
+<style>
+  .nav-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    padding: 6px 12px;
+    border-radius: var(--radius-full);
+    transition: all var(--transition);
+  }
+
+  .nav-back-link:hover {
+    color: var(--accent);
+    background: var(--bg-subtle);
+  }
+
+  @media (max-width: 640px) {
+    .nav-back-link span {
+      display: none;
+    }
+  }
+</style>

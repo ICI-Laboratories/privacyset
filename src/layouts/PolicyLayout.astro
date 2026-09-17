@@ -1,0 +1,344 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface Props {
+  title: string;
+  shortDescription: string;
+  category: string;
+  lastUpdated: string;
+  platforms: string[];
+  developer: string;
+  collaboration?: string;
+  accountDeletion?: {
+    supported: boolean;
+    email?: string;
+  };
+  offlineOnly?: boolean;
+  slug: string;
+  headings: Heading[];
+}
+
+const {
+  title,
+  shortDescription,
+  category,
+  lastUpdated,
+  platforms,
+  developer,
+  collaboration,
+  accountDeletion,
+  offlineOnly,
+  slug,
+  headings,
+} = Astro.props;
+
+const filteredHeadings = headings.filter(h => h.depth === 2);
+const pageTitle = `Política de Privacidad - ${title} | ICI Laboratories`;
+---
+
+<BaseLayout title={pageTitle} description={shortDescription} currentSlug={slug}>
+  <div class="container">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb-nav" aria-label="Ruta de navegación">
+      <a href="/">Inicio</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="/#aplicaciones">Aplicaciones</a>
+      <span class="breadcrumb-separator">/</span>
+      <span aria-current="page">{title}</span>
+    </nav>
+
+    <!-- Header Section of the Document -->
+    <header class="policy-header">
+      <div class="header-badges">
+        <span class="badge">{category}</span>
+        {platforms.map(p => (
+          <span class="badge badge-platform">{p}</span>
+        ))}
+      </div>
+
+      <h1 class="policy-main-title">{title}</h1>
+      <p class="policy-lead">{shortDescription}</p>
+
+      <div class="policy-meta-bar">
+        <div class="meta-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          <span><strong>Vigencia:</strong> {lastUpdated}</span>
+        </div>
+
+        <div class="meta-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span><strong>Desarrollado por:</strong> {developer}</span>
+        </div>
+
+        {collaboration && (
+          <div class="meta-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            <span>{collaboration}</span>
+          </div>
+        )}
+      </div>
+
+      <!-- Action Toolbar (Copy link for Google Play / Print) -->
+      <div class="action-buttons">
+        <button id="copy-url-btn" class="action-btn" type="button" aria-label="Copiar enlace para Play Store o App Store">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          <span id="copy-url-text">Copiar URL para tiendas</span>
+        </button>
+
+        <button class="action-btn" type="button" onclick="window.print()" aria-label="Imprimir o guardar como PDF">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+            <rect x="6" y="14" width="12" height="8"></rect>
+          </svg>
+          <span>Imprimir / PDF</span>
+        </button>
+
+        {accountDeletion?.supported && (
+          <a href="#eliminacion-de-cuenta" class="action-btn action-btn-accent">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 6h18"></path>
+              <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
+              <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
+            </svg>
+            <span>Eliminación de cuenta</span>
+          </a>
+        )}
+      </div>
+    </header>
+
+    <!-- Document Layout: Main Content + Sidebar TOC -->
+    <div class="policy-layout-grid">
+      <article class="prose policy-content">
+        <slot />
+      </article>
+
+      {filteredHeadings.length > 0 && (
+        <aside class="policy-sidebar" aria-label="Tabla de contenidos">
+          <div class="toc-sticky-box">
+            <h4 class="toc-title">En esta página</h4>
+            <nav class="toc-nav">
+              <ul>
+                {filteredHeadings.map(h => (
+                  <li>
+                    <a href={`#${h.slug}`}>{h.text}</a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            <div class="toc-help-box">
+              <p class="toc-help-text">¿Necesitas soporte técnico de la app?</p>
+              <a href="mailto:soporte@ici-labs.com" class="toc-help-link">soporte@ici-labs.com</a>
+            </div>
+          </div>
+        </aside>
+      )}
+    </div>
+  </div>
+</BaseLayout>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const copyBtn = document.getElementById('copy-url-btn');
+    const copyText = document.getElementById('copy-url-text');
+    if (copyBtn && copyText) {
+      copyBtn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(window.location.href);
+          const original = copyText.textContent;
+          copyText.textContent = "¡URL copiada!";
+          copyBtn.style.borderColor = "var(--accent)";
+          setTimeout(() => {
+            copyText.textContent = original;
+            copyBtn.style.borderColor = "";
+          }, 2500);
+        } catch (err) {
+          console.error("No se pudo copiar la URL", err);
+        }
+      });
+    }
+  });
+</script>
+
+<style>
+  .policy-header {
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--surface-border);
+  }
+
+  .header-badges {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .policy-main-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+
+  .policy-lead {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    max-width: 800px;
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+
+  .policy-meta-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    background: var(--surface);
+    border: 1px solid var(--surface-border-subtle);
+    padding: 12px 18px;
+    border-radius: var(--radius-md);
+  }
+
+  .meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: var(--radius-full);
+    background: var(--surface);
+    color: var(--text-secondary);
+    border: 1px solid var(--surface-border);
+    cursor: pointer;
+    transition: all var(--transition);
+  }
+
+  .action-btn:hover {
+    background: var(--surface-raised);
+    color: var(--text-primary);
+    border-color: var(--accent);
+  }
+
+  .action-btn-accent {
+    background: var(--accent-light);
+    color: var(--accent);
+    border-color: var(--accent-border);
+  }
+
+  .action-btn-accent:hover {
+    background: var(--accent);
+    color: #ffffff;
+  }
+
+  /* Grid Layout */
+  .policy-layout-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  @media (min-width: 1024px) {
+    .policy-layout-grid {
+      grid-template-columns: minmax(0, 1fr) 280px;
+    }
+  }
+
+  .toc-sticky-box {
+    position: sticky;
+    top: 96px;
+    background: var(--surface);
+    border: 1px solid var(--surface-border);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .toc-title {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+
+  .toc-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .toc-nav a {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+    display: block;
+    padding: 4px 0;
+  }
+
+  .toc-nav a:hover {
+    color: var(--accent);
+  }
+
+  .toc-help-box {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--surface-border-subtle);
+    font-size: 0.8rem;
+  }
+
+  .toc-help-text {
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+
+  .toc-help-link {
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  @media (max-width: 1023px) {
+    .policy-sidebar {
+      order: -1;
+    }
+  }
+</style>

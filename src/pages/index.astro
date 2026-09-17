@@ -1,0 +1,356 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AppCard from '../components/AppCard.astro';
+
+const allApps = await getCollection('apps');
+// Sort alphabetically by title
+const apps = allApps.sort((a, b) => a.data.title.localeCompare(b.data.title));
+---
+
+<BaseLayout
+  title="Portal de Políticas de Privacidad | ICI Laboratories"
+  description="Políticas de privacidad y tratamiento de datos personales de las aplicaciones móviles y soluciones de software de ICI Laboratories."
+>
+  <div class="container">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-badge">
+        <span class="pulse-dot"></span>
+        <span>Centro Oficial de Cumplimiento y Privacidad</span>
+      </div>
+      <h1 class="hero-title">Políticas de Privacidad</h1>
+      <p class="hero-subtitle">
+        En <strong>ICI Laboratories</strong> nos comprometemos con la protección, transparencia y soberanía de los datos de nuestros usuarios. A continuación se detallan las políticas de privacidad y términos para cada una de nuestras aplicaciones móviles y servicios.
+      </p>
+
+      <!-- Interactive Search / Filter Box -->
+      <div class="search-box">
+        <div class="search-input-wrapper">
+          <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input
+            type="search"
+            id="app-search"
+            placeholder="Buscar aplicación (ej. SARA, InSituLab, educación...)"
+            aria-label="Buscar aplicación por nombre o categoría"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Apps Catalog Grid -->
+    <section class="apps-section" id="aplicaciones">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <h2 class="section-heading">Aplicaciones Disponibles</h2>
+          <span class="apps-count" id="apps-count">{apps.length} aplicaciones activas</span>
+        </div>
+      </div>
+
+      <div class="apps-grid" id="apps-grid">
+        {apps.map((app) => (
+          <AppCard
+            slug={app.id}
+            title={app.data.title}
+            shortDescription={app.data.shortDescription}
+            category={app.data.category}
+            lastUpdated={app.data.lastUpdated}
+            platforms={app.data.platforms}
+            offlineOnly={app.data.offlineOnly}
+            accountDeletion={app.data.accountDeletion}
+          />
+        ))}
+      </div>
+
+      <!-- No results fallback -->
+      <div id="no-results" class="no-results" style="display: none;">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          <line x1="8" y1="11" x2="14" y2="11"></line>
+        </svg>
+        <h3>No se encontraron aplicaciones</h3>
+        <p>Intenta con otro término de búsqueda.</p>
+      </div>
+    </section>
+
+    <!-- Institutional / About Section -->
+    <section class="about-section" id="laboratorio">
+      <div class="card about-card">
+        <div class="about-grid">
+          <div class="about-text">
+            <span class="badge" style="margin-bottom: 12px;">Sobre ICI Laboratories</span>
+            <h2 class="about-title">Compromiso con la privacidad</h2>
+            <p>
+              Somos un laboratorio tecnológico dedicado a la investigación y desarrollo de soluciones de software, sistemas educativos y aplicaciones de alta calidad técnica.
+            </p>
+            <p>
+              Garantizamos el cumplimiento riguroso de las directrices de privacidad de <strong>Google Play Store</strong>, <strong>Apple App Store</strong> y marcos normativos internacionales, ofreciendo mecanismos directos para el ejercicio de los derechos ARCO y eliminación de datos.
+            </p>
+          </div>
+
+          <div class="collaborations-box">
+            <h3 class="collab-title">Colaboración Académica e Institucional</h3>
+            <p class="collab-desc">
+              Diversos proyectos de nuestro catálogo se desarrollan en estrecha vinculación con los Cuerpos Académicos <strong>UCOL-CA83</strong> y <strong>UCOL-CA91</strong> de la Universidad de Colima y con <strong>IDS Labs</strong>, impulsando iniciativas educativas de impacto social y formación tecnológica.
+            </p>
+            <div class="collab-contact">
+              <span>¿Tienes preguntas sobre el manejo de tus datos?</span>
+              <a href="mailto:soporte@ici-labs.com" class="collab-email-link">soporte@ici-labs.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('app-search');
+    const cards = Array.from(document.querySelectorAll('[data-app-card]'));
+    const countEl = document.getElementById('apps-count');
+    const noResults = document.getElementById('no-results');
+
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        let visibleCount = 0;
+
+        cards.forEach((card) => {
+          const title = card.getAttribute('data-title') || '';
+          const category = card.getAttribute('data-category') || '';
+          const desc = card.getAttribute('data-description') || '';
+
+          const matches = title.includes(query) || category.includes(query) || desc.includes(query);
+          if (matches) {
+            card.style.display = 'flex';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        if (countEl) {
+          countEl.textContent = `${visibleCount} ${visibleCount === 1 ? 'aplicación encontrada' : 'aplicaciones encontradas'}`;
+        }
+
+        if (noResults) {
+          noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+      });
+    }
+  });
+</script>
+
+<style>
+  .hero-section {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 60px auto;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--surface);
+    border: 1px solid var(--surface-border);
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 2px var(--accent-light);
+  }
+
+  .hero-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.4rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.15;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-subtitle {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 36px;
+  }
+
+  .search-box {
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  .search-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 18px;
+    color: var(--text-muted);
+    pointer-events: none;
+  }
+
+  .search-input-wrapper input {
+    width: 100%;
+    padding: 16px 20px 16px 52px;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--surface-border);
+    background: var(--surface);
+    font-family: var(--font-sans);
+    font-size: 0.975rem;
+    color: var(--text-primary);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition);
+  }
+
+  .search-input-wrapper input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-light);
+  }
+
+  /* Apps Section */
+  .apps-section {
+    margin-bottom: 80px;
+  }
+
+  .section-header {
+    margin-bottom: 28px;
+  }
+
+  .section-title-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid var(--surface-border);
+    padding-bottom: 12px;
+  }
+
+  .section-heading {
+    font-family: var(--font-serif);
+    font-size: 1.65rem;
+    color: var(--text-primary);
+  }
+
+  .apps-count {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .apps-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  @media (min-width: 768px) {
+    .apps-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .no-results {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-muted);
+  }
+
+  .no-results svg {
+    margin: 0 auto 16px auto;
+    stroke: var(--text-muted);
+  }
+
+  .no-results h3 {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+  }
+
+  /* About Section */
+  .about-section {
+    margin-bottom: 40px;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  @media (min-width: 840px) {
+    .about-grid {
+      grid-template-columns: 1.2fr 1fr;
+    }
+  }
+
+  .about-title {
+    font-family: var(--font-serif);
+    font-size: 1.75rem;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+  }
+
+  .about-text p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .collaborations-box {
+    background: var(--bg-subtle);
+    border: 1px solid var(--surface-border);
+    border-radius: var(--radius-md);
+    padding: 24px;
+  }
+
+  .collab-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+  }
+
+  .collab-desc {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .collab-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--surface-border-subtle);
+    padding-top: 14px;
+  }
+
+  .collab-email-link {
+    font-weight: 600;
+    color: var(--accent);
+  }
+</style>

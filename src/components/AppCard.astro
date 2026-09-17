@@ -1,0 +1,186 @@
+---
+interface Props {
+  slug: string;
+  title: string;
+  shortDescription: string;
+  category: string;
+  lastUpdated: string;
+  platforms: string[];
+  offlineOnly?: boolean;
+  accountDeletion?: {
+    supported: boolean;
+  };
+}
+
+const { slug, title, shortDescription, category, lastUpdated, platforms, offlineOnly, accountDeletion } = Astro.props;
+---
+
+<article class="card app-card" data-app-card data-title={title.toLowerCase()} data-category={category.toLowerCase()} data-description={shortDescription.toLowerCase()}>
+  <div class="card-header">
+    <div class="app-icon-badge" aria-hidden="true">
+      <span>{title.charAt(0)}</span>
+    </div>
+    <div class="card-title-group">
+      <span class="app-category">{category}</span>
+      <h3 class="app-title">
+        <a href={`/${slug}/`}>{title}</a>
+      </h3>
+    </div>
+  </div>
+
+  <p class="app-description">{shortDescription}</p>
+
+  <div class="app-badges">
+    {platforms.map(p => (
+      <span class="badge badge-platform">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+          <line x1="12" y1="18" x2="12.01" y2="18"></line>
+        </svg>
+        {p}
+      </span>
+    ))}
+    {offlineOnly ? (
+      <span class="badge" style="background: rgba(16, 185, 129, 0.12); color: #059669;">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        Offline-first (Sin nube)
+      </span>
+    ) : accountDeletion?.supported && (
+      <span class="badge" style="background: rgba(14, 165, 233, 0.12); color: #0284c7;">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="12"></line>
+          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
+        Eliminación de cuenta soportada
+      </span>
+    )}
+  </div>
+
+  <div class="card-footer">
+    <span class="last-updated">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"></circle>
+        <polyline points="12 6 12 12 16 14"></polyline>
+      </svg>
+      Actualizado: {lastUpdated}
+    </span>
+    <a href={`/${slug}/`} class="read-policy-btn">
+      <span>Ver política</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+        <polyline points="12 5 19 12 12 19"></polyline>
+      </svg>
+    </a>
+  </div>
+</article>
+
+<style>
+  .app-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    position: relative;
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .app-icon-badge {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--accent) 0%, #14b8a6 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.35rem;
+    font-family: var(--font-serif);
+    box-shadow: 0 4px 12px var(--accent-glow);
+    flex-shrink: 0;
+  }
+
+  .card-title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .app-category {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .app-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+  }
+
+  .app-title a {
+    color: var(--text-primary);
+  }
+
+  .app-title a:hover {
+    color: var(--accent);
+  }
+
+  .app-description {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1;
+  }
+
+  .app-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 16px;
+    border-top: 1px solid var(--surface-border-subtle);
+  }
+
+  .last-updated {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .read-policy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--accent);
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition);
+  }
+
+  .read-policy-btn:hover {
+    background: var(--accent-light);
+    transform: translateX(3px);
+  }
+</style>

@@ -1,0 +1,46 @@
+---
+// Footer.astro
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container footer-content">
+    <div class="footer-brand">
+      <p class="footer-title"><strong>ICI Laboratories</strong></p>
+      <p class="footer-desc">Desarrollo de soluciones tecnológicas y aplicaciones móviles científicas y operativas.</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="https://ici-labs.com" target="_blank" rel="noopener noreferrer">Sitio Web Oficial</a>
+      <span class="footer-dot">&middot;</span>
+      <a href="mailto:soporte@ici-labs.com">Contacto de Soporte</a>
+      <span class="footer-dot">&middot;</span>
+      <span>&copy; {currentYear} ICI Laboratories</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer-title {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+
+  .footer-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.85rem;
+  }
+
+  .footer-dot {
+    color: var(--text-muted);
+  }
+</style>
