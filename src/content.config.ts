@@ -23,7 +23,7 @@ const appSchema = z.object({
     supported: z.boolean().default(false),
     email: z.string().default('icilaboratories@gmail.com'),
     subject: z.string().optional(),
-    processingDays: z.number().default(15),
+    processingDays: z.number().optional(),
     responsible: z.string().optional(),
   }).optional(),
   offlineOnly: z.boolean().default(false),

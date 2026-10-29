@@ -2,10 +2,9 @@
 title: "InSituLab"
 shortDescription: "Educational offline-first utility for on-demand field trip logging and geotagging in practical science courses."
 category: "Education & Research"
-lastUpdated: "October 2026"
+lastUpdated: "October 28, 2026"
 platforms: ["Android"]
 developer: "ICI Laboratories (Educational club)"
-collaboration: "Advised by Dr. Walter Alexander Mata López (Director of FIME)"
 contactEmail: "icilaboratories@gmail.com"
 order: 5
 icon: "insitulab"
@@ -19,7 +18,7 @@ accountDeletion:
 offlineOnly: true
 ---
 
-**InSituLab** is a free educational application designed to facilitate field observation logging and academic site visit documentation, built independently by **ICI Laboratories** (a student-led educational tech club) with the academic advisory of **Dr. Walter Alexander Mata López**, professor, researcher, and Director of the School of Electromechanical Engineering (FIME). ICI Laboratories operates with full technological autonomy, disclaiming any institutional or legal liability from the University of Colima (UdeC) and FIME.
+**InSituLab** is developed by **ICI Laboratories**, an independent student-led educational club.
 
 ---
 
@@ -65,21 +64,20 @@ Because the application functions strictly offline and maintains no central serv
 
 - There are no cloud user accounts to delete.
 - You can remove individual field logs at any time from the app's visit history.
-- Uninstalling the application from your operating system settings **permanently and immediately destroys all database records, GPS points, and photos stored within the app sandbox**.
+- Uninstalling generally removes application-local data, but exported files, operating-system backups or copies in other applications may remain and must be managed separately.
 
 ---
 
-## 05. Academic notice and disclaimer
+## 05. Educational use
+InSituLab lets you document observations and prepare reports for educational activities.
 
-**InSituLab** is distributed strictly for **academic, educational, and scientific research purposes**:
-
-- **ICI Laboratories** distributes this tool strictly for educational and social outreach purposes.
-- The software is provided "as is", disclaiming any institutional liability from the University of Colima and FIME.
-- It is provided "as is" to enrich practical field education without commercial warranties.
+Before sharing reports, consider whether photographs, coordinates or notes identify other people or private locations. Share only the information needed for the activity.
 
 ---
 
 ## 06. Contact information
+
+**Data controller:** Pedro Antonio Ibarra Facio, operating the independent educational club ICI Laboratories. See the [privacy request procedure](/en/requests/) for the common contact and exercise of rights.
 
 For inquiries or feedback regarding InSituLab:
 

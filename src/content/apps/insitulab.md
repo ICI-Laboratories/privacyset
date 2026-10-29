@@ -2,10 +2,9 @@
 title: "InSituLab"
 shortDescription: "Herramienta educativa offline-first para el registro y geoetiquetado bajo demanda de reportes de visitas escolares en campo."
 category: "Educación e Investigación"
-lastUpdated: "Octubre 2026"
+lastUpdated: "28 de octubre de 2026"
 platforms: ["Android"]
 developer: "ICI Laboratories (Club educativo)"
-collaboration: "Asesorado por Dr. Walter Alexander Mata López (Director FIME)"
 contactEmail: "icilaboratories@gmail.com"
 order: 5
 icon: "insitulab"
@@ -19,13 +18,13 @@ accountDeletion:
 offlineOnly: true
 ---
 
-**InSituLab** es una herramienta tecnológica educativa y gratuita desarrollada para facilitar el levantamiento de información y registro de visitas escolares en campo, concebida por **ICI Laboratories** (club educativo independiente de desarrollo tecnológico) bajo el asesoramiento académico del **Dr. Walter Alexander Mata López**, profesor investigador y director de la Facultad de Ingeniería Electromecánica (FIME). ICI Laboratories gestiona esta herramienta de manera autónoma, deslindando totalmente de cualquier responsabilidad operativa, institucional o legal a la Universidad de Colima (UdeC) y a la FIME.
+**InSituLab** es desarrollada por **ICI Laboratories**, un club educativo independiente impulsado por estudiantes.
 
 ---
 
 ## 01. Modelo de privacidad local ("Offline-First")
 
-InSituLab fue diseñada bajo una estricta premisa de soberanía de datos y privacidad desde el diseño:
+InSituLab utiliza un modelo de almacenamiento local para sus funciones de registro:
 
 - **Sin Creación de Cuentas:** La aplicación no exige registro de usuario, credenciales, inicio de sesión ni perfiles en la nube.
 - **Almacenamiento 100% en el Dispositivo:** Todos los formularios de visita escolar, datos levantados, coordenadas y fotografías capturadas se almacenan únicamente en la base de datos interna de tu teléfono inteligente o tableta.
@@ -52,7 +51,7 @@ Para habilitar sus funciones didácticas centrales, la aplicación solicita dos 
 
 ## 03. Control del usuario y exportación
 
-Eres el único custodio y propietario de la información registrada en InSituLab:
+Puedes gestionar los registros locales y decidir cuándo compartirlos:
 
 - Los datos levantados no salen de tu teléfono de manera automática.
 - Los datos solo se transmiten cuando decides conscientemente accionar las opciones **"Exportar"** o **"Compartir"** (generando un archivo consolidado en formato PDF o archivo comprimido ZIP) para enviártelo a ti mismo, a tus profesores o compañeros a través del canal de tu elección (correo electrónico, Google Drive, mensajería instantánea, etc.).
@@ -65,21 +64,20 @@ Dado que la aplicación opera bajo un modelo puramente local y no sincroniza dat
 
 - No existe una cuenta en la nube para eliminar.
 - En cualquier momento puedes borrar registros individuales desde la lista de visitas de la aplicación.
-- Si decides desinstalar la aplicación desde los ajustes de tu sistema operativo, **todos los datos, coordenadas y fotos contenidos en la base de datos interna se destruirán de forma inmediata y definitiva** de tu terminal.
+- Desinstalar suele eliminar los datos locales de la aplicación; pueden permanecer archivos exportados, copias del sistema operativo o copias en otras aplicaciones, que deben gestionarse por separado.
 
 ---
 
-## 05. Aviso legal y deslinde de responsabilidad
+## 05. Uso educativo
+InSituLab permite documentar observaciones y preparar reportes para actividades educativas.
 
-El proyecto **InSituLab** es una iniciativa con carácter estrictamente **académico, educativo y de investigación científica**:
-
-- **ICI Laboratories** distribuye esta herramienta con fines formativos y de vinculación social sin fines lucrativos.
-- La aplicación se proporciona "tal cual", deslindando de cualquier responsabilidad institucional a la Universidad de Colima y a la FIME.
-- La aplicación se proporciona "tal cual", sin garantías comerciales implícitas, orientada a enriquecer la práctica pedagógica en ciencias e ingeniería.
+Antes de compartir reportes, considera si las fotografías, coordenadas o notas identifican a otras personas o ubicaciones privadas. Comparte únicamente la información necesaria para la actividad.
 
 ---
 
 ## 06. Contacto
+
+**Responsable del tratamiento:** Pedro Antonio Ibarra Facio, operador del club educativo independiente ICI Laboratories. Consulta el [procedimiento de solicitudes de privacidad](/solicitudes/) para el contacto común y el ejercicio de derechos.
 
 Para consultas técnicas, institucionales o retroalimentación sobre InSituLab:
 

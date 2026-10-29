@@ -2,15 +2,14 @@
 title: "SARA Eventos"
 shortDescription: "Plataforma académica e institucional para la gestión de agendas, coordinación de actividades, inscripciones, control de aforo y constancias."
 category: "Gestión de Eventos y Congresos"
-lastUpdated: "Octubre 2026"
+lastUpdated: "28 de octubre de 2026"
 platforms: ["Web", "Móvil"]
 developer: "ICI Laboratories (Club educativo)"
-collaboration: "Asesorado por Dr. Walter Alexander Mata López (Director FIME)"
 contactEmail: "icilaboratories@gmail.com"
 order: 3
 icon: "events"
 summary:
-  whatIs: "SARA Eventos es la plataforma oficial para la gestión de congresos, semanas de ingeniería, simposios y actividades académicas del ecosistema SARA."
+  whatIs: "SARA Eventos es la plataforma para la gestión de congresos, semanas de ingeniería, simposios y actividades académicas del ecosistema SARA."
   dataUsed: "Perfil de Cuenta SARA (UUID, nombre, correo), carrera o institución, actividades reservadas en la agenda personal, asistencia verificada y constancias generadas."
   purposes: "Coordinar la agenda de eventos, reservar lugares en talleres y ponencias, controlar aforos en tiempo real, validar asistencias y expedir constancias de participación."
   contact: "icilaboratories@gmail.com"
@@ -18,31 +17,20 @@ accountDeletion:
   supported: true
   email: "icilaboratories@gmail.com"
   subject: "Solicitud de baja y eliminación de datos - SARA Eventos"
-  processingDays: 15
-  responsible: "Equipo de Privacidad y Cumplimiento de ICI Laboratories"
+  responsible: "Contacto de privacidad de ICI Laboratories"
 offlineOnly: false
 ---
 
 Esta Política de Privacidad describe el tratamiento de datos personales en **SARA Eventos**, la plataforma desarrollada por **ICI Laboratories** (club educativo independiente de innovación tecnológica) para la planificación, coordinación, inscripción y acreditación de eventos académicos e institucionales (como semanas de ingeniería, simposios y congresos estudiantiles, tales como **TecnoFIME**).
 
-Al inscribirte o participar en cualquier evento gestionado a través de SARA Eventos, se aplican los términos y alcances que se detallan a continuación.
+Este aviso explica qué datos se utilizan al inscribirte o participar en los eventos gestionados mediante SARA Eventos.
 
 ---
 
-## 01. Quién organiza los eventos y delimitación de responsabilidades
+## 01. Organizadores y responsabilidades
+**ICI Laboratories** es un club educativo independiente impulsado por estudiantes que desarrolla y opera la plataforma. El club administra y mantiene su propio servicio.
 
-Es fundamental distinguir entre la provisión tecnológica de la plataforma y la coordinación sustantiva de cada actividad:
-
-- **Proveedor tecnológico:** **ICI Laboratories** es un club educativo independiente que desarrolla, aloja y mantiene la plataforma SARA Eventos. Su gestión opera de manera autónoma, deslindando totalmente de responsabilidad institucional, operativa o jurídica a la Universidad de Colima (UdeC) y a la Facultad de Ingeniería Electromecánica (FIME), contando con el asesoramiento académico del **Dr. Walter Alexander Mata López**, director de la facultad.
-- **Entidades y Comités Organizadores:** Cada evento específico alojado en la plataforma (por ejemplo, *TecnoFIME*) es coordinado por el comité organizador correspondiente (academias, profesores titulares o comités estudiantiles acreditados), quienes determinan los criterios de admisión y validez curricular.
-
-### Avisos específicos por evento
-En la interfaz de cada evento se muestra con absoluta transparencia:
-1. Qué facultad, dependencia o institución organiza el evento.
-2. Quién integra el comité organizador o de carrera.
-3. El propósito específico de las actividades y talleres ofertados.
-
-Si un evento cuenta con patrocinadores externos, instituciones asociadas independientes o condiciones particulares que difieran de los lineamientos generales del laboratorio, se proporcionará un **aviso de privacidad específico** complementario antes de formalizar la inscripción en dicha actividad.
+El comité organizador gestiona las actividades de cada evento y recibe datos de inscripción y asistencia para coordinar la participación, según se describe en la sección 04. Si necesitas identificar al organizador o consultar el tratamiento de tus datos en un evento concreto, indica el nombre del evento al contactar con nosotros.
 
 ---
 
@@ -51,7 +39,7 @@ Si un evento cuenta con patrocinadores externos, instituciones asociadas indepen
 SARA Eventos se encuentra integrada con el servicio central de autenticación **SARA ID**:
 
 - Para reservar tu lugar en talleres, conferencias magistrales o paneles, inicias sesión mediante tu **Cuenta SARA**.
-- SARA ID transmite a SARA Eventos únicamente tu identificador único (UUID), tu nombre completo y tu correo electrónico institucional o verificado.
+- SARA ID proporciona datos de cuenta, como UUID, nombre y correo, y puede incluir perfil educativo, membresías y permisos según la integración. El correo puede ser personal o institucional y su verificación depende del flujo de la cuenta.
 - La reserva de actividades, tu itinerario personal (*Mi Agenda*), las listas de espera y las constancias emitidas se vinculan exclusivamente a tu UUID central, garantizando que tu contraseña no sea conocida ni solicitada por los organizadores del evento.
 
 Para conocer cómo se protege tu cuenta de acceso unificado, revisa la [Política de Privacidad de SARA ID](/sara-id/).
@@ -77,8 +65,8 @@ Recopilamos la información estrictamente necesaria para la logística, segurida
 ### Finalidades del tratamiento
 - Gestionar de forma ordenada la ocupación y límites de aforo en cada espacio físico del campus.
 - Notificar oportunamente cambios de sede, cancelaciones o ajustes de horario de las actividades reservadas.
-- Validar el porcentaje mínimo de asistencia requerido para la emisión de constancias con validez curricular.
-- Generar métricas globales agregadas y estadísticas anonimizadas de aprovechamiento de espacios para la mejora de futuras ediciones.
+- Validar el porcentaje mínimo de asistencia requerido para la emisión de constancias de participación según los criterios del organizador.
+- Generar métricas y estadísticas agregadas de aprovechamiento de espacios para la mejora de futuras ediciones.
 
 ---
 
@@ -98,54 +86,37 @@ Los coordinadores de carrera y el comité organizador del evento tienen acceso �
 
 ---
 
-## 05. Cuánto tiempo conservamos los datos de eventos
+## 05. Conservación de registros de eventos
+Las inscripciones, asistencias y constancias emitidas se utilizan para operar el evento y atender aclaraciones de participación. La finalización del evento o la cancelación de una reserva no elimina automáticamente todos los registros asociados.
 
-- **Registros de inscripción y aforo operativo:** Se conservan en el sistema activo durante la vigencia del evento y hasta 60 días posteriores para la resolución de aclaraciones de asistencia.
-- **Constancias y folios de validación:** El registro del folio criptográfico, nombre del acreditado y constancia emitida se conserva de forma permanente en el validador histórico de documentos para permitir que instituciones o empleadores verifiquen la autenticidad del documento en el futuro.
-- **Bitácoras de auditoría técnica:** Se depuran de forma periódica en un plazo no mayor a 90 días naturales.
+Cuando el evento ofrece validación de constancias, se utilizan los registros asociados para comprobar su emisión. Puedes consultar su conservación y solicitar la cancelación de tus datos mediante el procedimiento de privacidad. La respuesta explicará cualquier efecto sobre la validación de tu constancia.
 
 ---
 
-## 06. Eliminación de datos y bajas de eventos
+## 06. Cancelación y solicitudes de privacidad
 
 <div id="eliminacion-de-cuenta" class="compliance-card">
 
-### Cancelación de participación y eliminación de registros
+Si el evento ofrece cancelación desde *Mi Agenda*, puedes utilizarla para liberar tu reserva conforme a sus condiciones. Cancelar una reserva no necesariamente elimina todos los registros históricos.
 
-Tienes derecho a cancelar tu inscripción o solicitar la supresión de tus datos de asistencia de la plataforma SARA Eventos:
+Para acceso, rectificación, cancelación u oposición, revocación del consentimiento o límites de uso o divulgación, sigue el [procedimiento de solicitudes de privacidad](/solicitudes/). Indica **SARA Eventos**, el evento, tu correo registrado y los datos afectados. No envíes contraseñas ni códigos de autenticación.
 
-#### 1. Cancelación de inscripción antes del evento:
-Puedes liberar tu lugar en cualquier taller o actividad directamente desde la sección *Mi Agenda* en la plataforma antes de que inicie la sesión, permitiendo que un participante de la lista de espera ocupe el espacio.
-
-#### 2. Procedimiento para solicitar la eliminación de datos históricos:
-1. Redacta un correo a **[icilaboratories@gmail.com](mailto:icilaboratories@gmail.com)**.
-2. En el asunto indica: **"Solicitud de baja y eliminación de datos - SARA Eventos"**.
-3. Señala tu nombre completo, correo registrado y el evento correspondiente (ej. TecnoFIME 2026).
-4. Especifica si deseas darte de baja de las listas de contacto o suprimir registros de asistencia de talleres no acreditados.
-
-#### Consideración sobre constancias expedidas:
-Si ya se te ha emitido una constancia oficial con valor curricular o créditos universitarios, la supresión de dicho registro invalidará el folio de verificación pública de tu constancia. Los expedientes de acreditación académica reportados a las facultades se rigen por la normativa universitaria correspondiente.
-
-#### Plazo de atención:
-Las peticiones serán procesadas en un lapso máximo de **15 días hábiles**.
+La respuesta explicará cualquier efecto sobre la validación de constancias y cualquier conservación o bloqueo justificado. El procedimiento explica los plazos de respuesta y ejecución aplicables.
 
 </div>
 
 ---
 
-## 07. Seguridad de la información
-
-SARA Eventos cuenta con mecanismos de protección técnica para asegurar que las reservas y credenciales no sean alteradas:
-- Sesiones blindadas mediante tokens criptográficos verificados en servidor (*BFF architecture*).
-- Prevención de concurrencia destructiva en la asignación de aforos mediante transacciones atómicas.
-- Transmisión encriptada con certificados TLS de extremo a extremo.
+## 07. Seguridad técnica
+El acceso público utiliza HTTPS y el servicio comprueba sesiones y permisos de las cuentas. Mantén tus credenciales privadas y reporta sospechas de incidentes mediante el canal de privacidad.
 
 ---
 
 ## 08. Contacto
 
+**Responsable del tratamiento:** Pedro Antonio Ibarra Facio, operador del club educativo independiente ICI Laboratories. Consulta el [procedimiento de solicitudes de privacidad](/solicitudes/) para el contacto común y el ejercicio de derechos.
+
 Si tienes inquietudes sobre el tratamiento de tus datos personales en SARA Eventos o sobre las constancias emitidas:
 
-- **Privacidad y Cumplimiento:** [icilaboratories@gmail.com](mailto:icilaboratories@gmail.com)
-- **Facultad de Ingeniería Electromecánica (FIME):** [https://fime.ucol.mx](https://fime.ucol.mx)
+- **Contacto de privacidad:** [icilaboratories@gmail.com](mailto:icilaboratories@gmail.com)
 - **Centro de Privacidad:** [https://privacy.ici-labs.com](https://privacy.ici-labs.com)

@@ -15,12 +15,12 @@ const currentYear = new Date().getFullYear();
       <p class="footer-title">{isEn ? "Privacy Center · ICI Laboratories" : "Centro de privacidad · ICI Laboratories"}</p>
       <p class="footer-desc">
         {isEn
-          ? "ICI Laboratories is an independent student educational tech club for software engineering innovation. All platforms and services are operated autonomously by the club, fully disclaiming institutional liability from the University of Colima (UdeC) and FIME, and counting with the academic advisory of Dr. Walter Alexander Mata López (Director of the faculty)."
-          : "ICI Laboratories es un club educativo independiente de desarrollo e innovación tecnológica. Los proyectos y plataformas son gestionados con total autonomía por el club, deslindando de cualquier responsabilidad institucional, operativa o jurídica a la Universidad de Colima (UdeC) y a la Facultad de Ingeniería Electromecánica (FIME), contando con el asesoramiento académico del Dr. Walter Alexander Mata López, director de la facultad."}
+          ? "ICI Laboratories is an independent educational club. Data controller: Pedro Antonio Ibarra Facio."
+          : "ICI Laboratories es un club educativo independiente. Responsable del tratamiento: Pedro Antonio Ibarra Facio."}
       </p>
       <div class="footer-team">
         <span>{isEn ? "Educational club · Data governance" : "Club educativo · Gobernanza de datos"}</span> &middot;
-        <span>{isEn ? "Revision:" : "Revisión:"} <strong>{isEn ? "October 2026" : "Octubre 2026"}</strong></span>
+        <span>{isEn ? "Updated:" : "Actualización:"} <strong>{isEn ? "October 2026" : "Octubre 2026"}</strong></span>
       </div>
     </div>
 
@@ -32,8 +32,8 @@ const currentYear = new Date().getFullYear();
             <a href="mailto:icilaboratories@gmail.com">icilaboratories@gmail.com</a>
           </li>
           <li>
-            <a href={isEn ? "/en/#account-and-data" : "/#cuenta-y-datos"}>
-              {isEn ? "Deletion procedures" : "Procedimiento de eliminación"}
+            <a href={isEn ? "/en/requests/" : "/solicitudes/"}>
+              {isEn ? "Privacy requests" : "Solicitudes de privacidad"}
             </a>
           </li>
         </ul>
@@ -56,8 +56,8 @@ const currentYear = new Date().getFullYear();
   <div class="container footer-bottom">
     <p>
       {isEn
-        ? `© ${currentYear} ICI Laboratories · Independent educational tech club. Academic advisory: Dr. Walter Alexander Mata López (Director of FIME). Institutional disclaimer: independent from UdeC and FIME.`
-        : `© ${currentYear} ICI Laboratories · Club educativo independiente. Asesoramiento académico: Dr. Walter Alexander Mata López (Director FIME). Deslinde total de responsabilidad de la Universidad de Colima y la FIME.`}
+        ? `© ${currentYear} ICI Laboratories · Independent educational club.`
+        : `© ${currentYear} ICI Laboratories · Club educativo independiente.`}
     </p>
   </div>
 </footer>

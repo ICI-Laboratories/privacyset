@@ -2,10 +2,9 @@
 title: "SARA MD"
 shortDescription: "Editor Markdown local-first, rápido y privado para Android y iOS, con soporte para fórmulas LaTeX, diagramas Mermaid y conversión de documentos."
 category: "Productividad y Herramientas"
-lastUpdated: "Octubre 2026"
+lastUpdated: "28 de octubre de 2026"
 platforms: ["Android", "iOS"]
 developer: "ICI Laboratories (Club educativo)"
-collaboration: "Asesorado por Dr. Walter Alexander Mata López (Director FIME)"
 contactEmail: "icilaboratories@gmail.com"
 order: 4
 icon: "docmd"
@@ -19,9 +18,9 @@ accountDeletion:
 offlineOnly: true
 ---
 
-Esta Política de Privacidad describe el tratamiento de la información en **SARA MD**, aplicación móvil desarrollada de manera independiente por **ICI Laboratories** (club educativo de desarrollo tecnológico asesorado académicamente por el Dr. Walter Alexander Mata López, director de la FIME). ICI Laboratories gestiona sus proyectos de forma autónoma, deslindando totalmente de cualquier responsabilidad institucional, operativa o legal a la Universidad de Colima (UdeC) y a la FIME. 
+**SARA MD** es desarrollada por **ICI Laboratories**, un club educativo independiente impulsado por estudiantes.
 
-SARA MD fue concebida desde su arquitectura fundamental como una aplicación **local-first (centrada exclusivamente en el dispositivo)**. Creemos firmemente que tus notas, ideas, fórmulas y documentos te pertenecen de manera absoluta, por lo que la aplicación opera sin rastreo, sin telemetría, sin publicidad y sin recopilación de datos en servidores externos.
+SARA MD utiliza un modelo **local-first (centrado en el dispositivo)** para editar y almacenar documentos. Los archivos exportados, el contenido remoto y las copias del sistema operativo pueden involucrar otros servicios sujetos a sus propias condiciones.
 
 ---
 
@@ -48,13 +47,13 @@ Para permitirte trabajar con tus archivos, la aplicación solicita interactuar c
 - Al previsualizar documentos Markdown que incluyan enlaces a imágenes externas en Internet, SARA MD **no descarga automáticamente las imágenes remotas** para evitar que servidores de terceros puedan registrar tu dirección IP o rastrear la apertura del documento. En su lugar, se muestra un marcador de posición protegido a menos que autorices explícitamente su visualización.
 
 ### Enlaces Externos
-- La aplicación únicamente permite la apertura de enlaces con protocolos seguros (`http`, `https` y `mailto`), derivando la navegación al navegador predeterminado de tu dispositivo tras tu interacción directa.
+- La aplicación únicamente permite la apertura de enlaces con protocolos permitidos (`http`, `https` y `mailto`), derivando la navegación al navegador predeterminado de tu dispositivo tras tu interacción directa.
 
 ---
 
 ## 03. Control de la información y exportación
 
-Conservas en todo momento el control absoluto y la propiedad intelectual de tus notas:
+Puedes gestionar tus documentos y decidir cuándo exportarlos:
 
 - Ningún documento sale de tu dispositivo de forma desatendida.
 - La función de exportación utiliza el menú nativo para compartir (*Share Sheet*) del sistema operativo. Los archivos solo se transmiten cuando decides conscientemente enviarlos a otras aplicaciones instaladas (por ejemplo, guardar en Google Drive, enviar por correo electrónico o compartir por mensajería).
@@ -67,13 +66,13 @@ Debido a que SARA MD no transmite ni almacena información en servidores de ICI 
 
 - No existen perfiles en la nube ni bases de datos remotas sujetas a depuración o trámite.
 - Puedes eliminar cualquier documento o borrador en cualquier momento directamente desde la biblioteca interna de la aplicación.
-- Al desinstalar la aplicación desde los ajustes de tu sistema operativo (Android o iOS), **todos los documentos, respaldos temporales y configuraciones locales almacenados en el sandbox de la app se destruyen de manera inmediata y definitiva**.
+- Desinstalar suele eliminar los datos locales de la aplicación; pueden permanecer archivos exportados, copias del sistema operativo o copias en otras aplicaciones, que deben gestionarse por separado.
 
 ---
 
 ## 05. Seguridad
 
-Dado que los archivos residen localmente en tu teléfono inteligente, la seguridad de tus documentos está respaldada por los mecanismos de protección físicos y biométricos de tu propio dispositivo (cifrado de almacenamiento a nivel de sistema operativo, código PIN, huella dactilar o reconocimiento facial).
+Dado que los archivos residen localmente en tu teléfono inteligente, la seguridad de tus documentos depende también de la configuración y las protecciones disponibles en tu dispositivo. Utiliza bloqueo de pantalla y revisa tus opciones de respaldo y exportación.
 
 ---
 
@@ -85,11 +84,13 @@ SARA MD es una herramienta de productividad general adecuada para todo público 
 
 ## 07. Modificaciones a esta política
 
-En caso de que en futuras versiones se introduzcan funciones complementarias opcionales (como sincronización cifrada de extremo a extremo voluntaria), esta Política de Privacidad será actualizada con antelación y debidamente notificada en esta misma URL y en las notas de versión de Google Play y Apple App Store.
+Las actualizaciones que modifiquen el tratamiento de datos se comunicarán en esta misma URL y en las notas de versión de la aplicación antes de aplicar los cambios.
 
 ---
 
 ## 08. Contacto
+
+**Responsable del tratamiento:** Pedro Antonio Ibarra Facio, operador del club educativo independiente ICI Laboratories. Consulta el [procedimiento de solicitudes de privacidad](/solicitudes/) para el contacto común y el ejercicio de derechos.
 
 Si tienes preguntas técnicas o sugerencias acerca de SARA MD o las prácticas de privacidad de ICI Laboratories:
 

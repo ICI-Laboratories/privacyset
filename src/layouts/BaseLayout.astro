@@ -48,6 +48,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://privacy.
   <meta property="twitter:description" content={description}>
 </head>
 <body>
+  <!--email_off-->
   <a class="skip-link" href="#contenido">
     {lang === 'en' ? "Skip to main content" : "Saltar al contenido principal"}
   </a>
@@ -59,6 +60,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://privacy.
   </main>
 
   <Footer lang={lang} />
+  <!--/email_off-->
 </body>
 </html>
 

@@ -2,7 +2,7 @@
 title: "SARA ID — SARA Account"
 shortDescription: "Core identity service, cryptographically protected credentials, unified sessions, and secure access across ICI Laboratories applications."
 category: "Identity & Authentication"
-lastUpdated: "October 2026"
+lastUpdated: "28 October 2026"
 platforms: ["Web", "Android", "iOS", "API"]
 developer: "ICI Laboratories"
 contactEmail: "icilaboratories@gmail.com"
@@ -18,201 +18,84 @@ accountDeletion:
   supported: true
   email: "icilaboratories@gmail.com"
   subject: "SARA Account Deletion Request - SARA ID"
-  processingDays: 15
-  responsible: "ICI Laboratories Privacy & Compliance Team"
+  responsible: "Pedro Antonio Ibarra Facio"
 offlineOnly: false
 ---
 
-This Privacy Policy describes how personal data is processed within **SARA ID**, the central identity management service of **ICI Laboratories**, and establishes the terms of use, security, and data governance applicable to your **SARA Account**.
+## 01. Controller and scope
 
-By registering a SARA Account or signing in to any connected application through SARA ID, you acknowledge and agree to the provisions described below.
+**Pedro Antonio Ibarra Facio** is the data controller for this service, operated under the name **ICI Laboratories**, an independent educational club. Contact: [icilaboratories@gmail.com](mailto:icilaboratories@gmail.com).
 
----
+SARA stands for **Sistema de Aprendizaje y Retroalimentación Asistida**. SARA ID manages the SARA Account and access to connected applications in the ecosystem.
 
-## 01. Who manages your account
+## 02. Data and purposes
 
-Your SARA Account is operated and administered independently by **ICI Laboratories**, a student-led **educational tech club** dedicated to software engineering innovation and applied artificial intelligence.
+We use account data to authenticate users, maintain shared profiles, manage sessions and access, verify addresses, handle recovery and requests, and record security events:
 
-- **Operating Entity:** ICI Laboratories (Independent educational club).
-- **Official Privacy & ARCO Desk:** [icilaboratories@gmail.com](mailto:icilaboratories@gmail.com).
-- **Account Management Portal:** [https://auth.ici-labs.com](https://auth.ici-labs.com).
+- **Account:** UUID, name, primary and additional registered email addresses, account status and address verification.
+- **Profile:** display and full names, education and organizational information you provide, education level, institution, faculty, program, campus and period. The current profile also supports street address, municipality, state, postal code and country. These fields are not needed to send verification emails; avoid completing them without a concrete purpose explained by the service you use.
+- **Access:** memberships, roles, permissions and enabled modules according to recorded assignments.
+- **Credentials:** password hash, external provider identifiers and data needed for configured authentication features. Local passwords are not stored as plaintext. Passkey features store credential data and public keys, not fingerprints or facial images.
+- **Sessions and security:** session identifiers and expiry, activity timestamps, audit records and, depending on the request, IP address and browser or device information.
 
-### Institutional Disclaimer (UdeC & FIME)
-ICI Laboratories operates with full technological and organizational autonomy. All applications, cloud platforms, source code, user databases, and data processing activities are managed exclusively by the educational club. **ICI Laboratories fully disclaims any institutional, legal, technical, or administrative liability from the University of Colima (UdeC) and the School of Electromechanical Engineering (FIME)** arising from the operation of SARA ID or connected services.
+Registration is not intended to collect sensitive data such as health, religion or biometrics. Do not include such data in names, profile fields or support requests. Content supplied to other applications is covered by their respective notices.
 
-### Academic Advisory & Mentorship
-The educational initiatives and engineering standards of ICI Laboratories benefit from the academic guidance and advisory of **Dr. Walter Alexander Mata López**, university research professor and current **Director / Dean of the School of Electromechanical Engineering (FIME)**.
+We do not use these data for selling databases, personalized advertising or commercial profiling. You may request limits on use or disclosure, object to processing or withdraw consent using the [privacy procedure](/en/requests/). Some requests may affect features that depend on those data; we will explain their scope.
 
-### Relationship between SARA and ICI Laboratories
-**ICI Laboratories** is the independent developing club that architects, builds, and maintains the ecosystem. **SARA** (Learning and Academic Performance System) represents the software and educational suite designed by the club. **SARA ID** is the underlying identity provider enabling users to maintain a single secure account across all projects without dispersing passwords.
+## 03. Google sign-in
 
----
+When you choose Google sign-in, SARA ID receives basic identity data: Google identifier, name, email and verification information issued by that provider. These are used to authenticate and manage the linked account. This feature does not request access to Gmail messages, Drive, contacts or calendars. It does not send your local SARA password to Google.
 
-## 02. Information we collect and process
+Linked identity data are stored in SARA ID's database. You can review available connection and unlinking options in your account. Unlinking a provider does not automatically delete the SARA Account or historical records. You may also manage the permission in your Google account. Do not unlink your only sign-in method without an alternative.
 
-SARA ID collects and processes only the minimum data strictly necessary to authenticate your identity, safeguard your sessions, and maintain industry-standard security protocols:
+## 04. Transactional email — ICI Identity Mail / ICI Identity Mail Backend
 
-### Account & profile details
-- **Unique User Identifier (UUID):** An immutable, randomly generated universal unique identifier assigned by our backend to associate your records without exposing sensitive identifiers across systems.
-- **Display name:** Your given name and surname used to identify you on welcome interfaces and within connected applications.
-- **Primary email address:** Used as your canonical sign-in username, communication channel for security notices, and proof of address verification.
-- **Profile picture or avatar:** Synchronized voluntarily if you choose to sign in with Google or upload an image directly.
+The Google application is named **ICI Identity Mail**, and its technical client is **ICI Identity Mail Backend**. This integration uses Gmail API with **gmail.send** to send email verifications, recovery links and password-change confirmations from **icilaboratories@gmail.com**. The mailbox administrator authorizes this connection; recipients do not grant access to their own mailboxes.
 
-### Cryptographically protected credentials
-- When you set a direct password in SARA ID, **it is never stored in plain text**. Passwords are exclusively transformed and secured using modern, salted, one-way cryptographic key derivation algorithms (such as Argon2id or PBKDF2). Technical personnel at ICI Laboratories have neither the mathematical ability nor the operational privilege to view your plaintext password.
+Google processes the sender, recipient and message content to deliver email. This permission does not let this integration read the recipient's or operational mailbox's inbox. This connection is not used for advertising.
 
-### Sessions and security metadata
-To detect suspicious activity and allow you to audit your logins, our backend automatically records:
-- **Session identifiers:** Cryptographically signed or opaque access tokens with bounded lifetimes.
-- **Connection metadata:** Originating IP address, device type, browser client (*User-Agent*), and timestamps marking authentication and last recorded activity.
-- **Security audit trails:** Unsuccessful login attempts, password reset requests, and security-critical events, retained to mitigate automated brute-force attacks and unauthorized access attempts.
+The mailbox refresh credential is stored encrypted on the server. Pending messages are encrypted in a queue; their content is removed from that queue after completion, cancellation or expiry. Links expire and can only be completed once. Queue cleanup does not delete delivered copies or copies retained by providers or recipients.
 
----
+An administrator can disconnect the sender in the portal, removing the refresh credential from the active connection. They can also revoke permission in the Google account. Disconnecting stops sending from that connection; it does not delete account or audit records.
 
-## 03. How Google Sign-In works
+Use and transfer of information received from Google APIs will comply with the [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy), including **Limited Use** requirements, and the [Google Workspace API user data policy](https://developers.google.com/workspace/workspace-api-user-data-developer-policy). We do not use this information for advertising or training general-purpose AI models.
 
-SARA ID provides an optional authentication method through **Google Identity** using standard OAuth 2.0 / OpenID Connect protocols.
+## 05. Connected applications and providers
 
-### Data requested during sign-in
-When you select "Continue with Google" or "Sign in with Google", we request only the basic identity scopes (`openid`, `email`, `profile`):
-- Your Google-verified email address.
-- Your public Google profile name.
-- The unique numeric identifier assigned to you by Google (`sub`).
-- Your public Google profile photo (optional).
+Registered applications receive data according to their integration with SARA ID. In addition to UUID, name and email, they may receive education profiles, completed address fields, memberships, roles, permissions and enabled modules. Some integrations share these data as a profile set, without individual field selection at sign-in.
 
-### Why we use this data
-- To reliably verify your ownership of the specified email address without requiring manual verification steps.
-- To transparently create or link your central SARA Account, allowing you to access tools without remembering an additional password.
+Sign-in identifies the account; SARA ID's recorded permissions and each application's rules determine access. Applications retain functional data under their own notices. Check who operates an application before accessing it; holding an account is not consent to every new purpose.
 
-### Strict limitations
-- **We never request, access, or inspect your personal Gmail inbox, Google Drive files, contacts, calendar entries, or any other private Google service.**
-- We never share your SARA ID passwords with Google.
-- Google does not receive data regarding your academic coursework, tasks, event attendance, or notes stored within connected applications.
+The service uses its own hosting infrastructure, Cloudflare for connection delivery and protection, and Google for the features described. Providers process technical or message information needed to provide their services and may operate outside Mexico. An institution or independently operated application must identify the purpose and conditions of data exchange; transfers requiring consent must be disclosed and authorized before taking place.
 
----
+## 06. Sessions and browser storage
 
-## 04. How we send emails (ICI Identity Mail Backend)
+The portal uses cookies to maintain sessions and complete authorization attempts, along with local preferences such as visual theme. These functions are separate from advertising. Fetching externally hosted profile images may disclose technical connection information to the image host.
 
-To safeguard your account, SARA ID must deliver critical transactional emails under the following circumstances:
-- Confirming and verifying your primary email address.
-- One-time recovery links for forgotten passwords.
-- Real-time alerts regarding unexpected logins or security-critical credential updates.
+You can close sessions using the available account controls. This does not delete documents or data retained by other applications, nor permanently prevent future sign-in. Propagation depends on each application correctly validating the central session.
 
-### Server-side operational mailbox
-These automated notifications are dispatched using Google Workspace's official Gmail API, connected exclusively to an official operational mailbox owned and managed by ICI Laboratories: **`icilaboratories@gmail.com`**.
+## 07. Retention and security
 
-> **Technical identity in Google Cloud:**  
-> In Google Cloud Platform administrative consoles, technical audits, and server-side consent screens, this integration is designated as **“ICI Identity Mail Backend”** (associated with project `ici-identity-mail` and the dedicated server permission `gmail.send`).
+We retain profiles as needed to provide the service and handle requests; cancellation follows the procedure below. Sessions expire or are revoked, but this does not immediately erase their records.
 
-### What this means for end users
-- **You do not grant access to your personal email:** The sending authorization resides strictly on the server side for ICI Laboratories' own sender account. End users signing in with their SARA Account **never grant permission over their personal Gmail accounts, and SARA ID cannot read, access, or send messages from your private inbox**.
-- We never send marketing spam, promotional advertisements, or third-party solicitations.
+Technical records of completed deliveries and old verifications are cleaned after 30 days; old request-limit counters are cleaned after two days. These periods apply to the email service and do not delete the account, its security records or backups. To request cancellation of your data, use the [privacy procedure](/en/requests/).
 
----
+Controls include access restrictions, HTTPS, password hashing and encryption of mail credentials and queue payloads. This does not mean all data or backups are encrypted at rest or that all security risks are eliminated. Report incidents to the privacy contact without attaching passwords or recovery links.
 
-## 05. What connected applications receive
+## 08. Rights, requests and minors
 
-Your SARA Account enables single sign-on across authorized applications in our ecosystem, including:
-- **SARA (Educational Platform):** Web workspace and mobile apps for coursework and studying.
-- **SARA Eventos:** Conference, symposium, and academic schedule management (e.g., *TecnoFIME*).
-- **Authorized institutional and research tools.**
+You may request access, rectification, cancellation or opposition (ARCO), limits on use or disclosure, and withdrawal of consent through [icilaboratories@gmail.com](mailto:icilaboratories@gmail.com). The [full procedure](/en/requests/) explains identity verification and statutory response and implementation periods.
 
-### Data shared with connected applications
-Upon signing in to an authorized application, SARA ID transmits only the minimum profile packet required:
-- Your unique user identifier (UUID).
-- Your display name.
-- Your verified email address.
-- Your general institutional role if applicable (student, teacher, researcher).
+The service must not be used by a third party to enroll minors without verifying the applicable representation, information and authorization requirements. A teacher's authorization does not automatically replace that of the legally appropriate representative.
 
-### Key distinction: Authentication vs. In-App Permissions
-SARA ID is solely responsible for **authentication** (verifying who you are). SARA ID **does not govern or manage your internal permissions within individual applications**. For example:
-- Course enrollments, classroom assignments, and academic marks are administered entirely within the SARA Educational Platform.
-- Workshop reservations, seating capacities, and attendance certificates are managed by the event organizing committees in SARA Eventos.
-- Each application stores and maintains its functional records in accordance with its own specific privacy policy.
+## 09. Deleting a SARA Account
 
----
+<div id="eliminacion-de-cuenta"></div>
 
-## 06. How to revoke application access
+Request deletion through the privacy channel and specify whether it concerns the central SARA Account or data in a particular application. We will verify the request and explain its scope, outcome and the grounds for any applicable blocking or retention.
 
-You may revoke an application's access or terminate active sessions at any time:
-- Through your account settings at [https://auth.ici-labs.com](https://auth.ici-labs.com).
-- By contacting our privacy desk at [icilaboratories@gmail.com](mailto:icilaboratories@gmail.com).
+Deleting the central account affects access to connected applications. Assignments, files and registrations stored by those applications are handled under their own privacy notices. Specify the services and data you wish to cancel so we can explain the scope of your request.
 
-### Real effects and technical boundaries
-- **Effect of revocation:** Terminating a session or revoking an integration immediately invalidates active authentication tokens, preventing the app from establishing new authenticated sessions without explicit re-authorization.
-- **Boundaries:** Revoking access centrally does not retroactively erase historical records, completed assignments, or certificates already logged in the application's internal database during prior legitimate use. To request the deletion of historical in-app data, consult the specific policy for that service.
+## 10. Changes and contact
 
----
-
-## 07. Data retention criteria
-
-We adhere to clear, verifiable retention criteria across our systems:
-
-| Data Category | Retention Criterion | Technical Purpose |
-|---|---|---|
-| **SARA Account & profile details** | Maintained while your account remains open and active. | Ensuring persistent access to connected applications. |
-| **Expired session tokens** | Automatically purged upon expiration or manual logout. | Cryptographic hygiene and resource management. |
-| **Security audit logs** | Rolling retention period of 30 to 90 calendar days. | Incident detection, threat prevention, and audit traceability. |
-| **System database backups** | Encrypted, periodic rotation with systematic overwriting. | Disaster recovery and hardware failover continuity. |
-
-We do not retain personal identity data indefinitely once its technical necessity has concluded or upon verified account deletion.
-
----
-
-## 08. Exercising your privacy rights (ARCO)
-
-We guarantee accessible and transparent mechanisms to exercise your rights of Access, Rectification, Cancellation, and Objection:
-
-### 1. Direct profile management
-You can review and update basic account details by logging into the SARA ID portal at [https://auth.ici-labs.com](https://auth.ici-labs.com).
-
-### 2. Formal privacy requests
-To submit a formal request regarding personal data access, institutional email corrections, or account deletion:
-
-1. Send an email to **[icilaboratories@gmail.com](mailto:icilaboratories@gmail.com)**.
-2. Subject line: **"Privacy Request - SARA ID"**.
-3. In your message, provide:
-   - Full name.
-   - Primary email address registered with your SARA Account.
-   - Specific details regarding the request (access, correction, or deletion).
-4. Our team will verify your identity via a secure confirmation challenge sent to your registered address.
-5. **Turnaround time:** All verified requests will be addressed and resolved within **15 business days**.
-
----
-
-## 09. Deleting your SARA Account
-
-<div id="eliminacion-de-cuenta" class="compliance-card">
-
-### Consequences of central SARA Account deletion
-
-Requesting the permanent deletion of your SARA Account initiates the irreversible removal of your central identity:
-
-#### What is immediately and permanently erased in SARA ID:
-- Your user profile, UUID, display name, and registered email address.
-- Your cryptographic login credentials and authentication secrets.
-- All active sessions and SSO authorizations across all devices.
-
-#### Direct consequence:
-- **You will permanently lose unified access to all connected applications** that rely on SARA ID for authentication.
-
-#### Institutional exception:
-- Central account deletion does not automatically destroy historical records that educational institutions, faculties, or event organizers are legally or academically required to maintain (such as official grade rosters, examination records, or accredited course certificates issued in SARA or SARA Eventos). Those records remain governed by the applicable university and departmental regulations.
-
-</div>
-
----
-
-## 10. Modifications and contact
-
-We may update this Privacy Policy periodically to reflect architectural updates or regulatory changes. 
-
-Substantial updates will be published on this portal, indicating the revised version at the bottom. When critical changes affect your account governance, notifications will be provided via the portal or your registered email.
-
-### Official contact channels
-For questions, clarifications, or privacy requests:
-
-- **Operating Entity:** ICI Laboratories (Independent educational tech club)
-- **Academic Advisory:** Dr. Walter Alexander Mata López (Director of FIME)
-- **Privacy & ARCO Desk:** [icilaboratories@gmail.com](mailto:icilaboratories@gmail.com)
-- **Privacy Center:** [https://privacy.ici-labs.com/en/](https://privacy.ici-labs.com/en/)
+Updates will be published at this URL with a revision date. New purposes or processing requiring consent are not authorized merely by changing this text. Contact: [icilaboratories@gmail.com](mailto:icilaboratories@gmail.com).

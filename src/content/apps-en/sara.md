@@ -2,10 +2,9 @@
 title: "SARA — Educational Platform"
 shortDescription: "Academic management for courses, multimedia assignments, formative assessments, and pedagogical AI assistance."
 category: "Education & Learning"
-lastUpdated: "October 2026"
+lastUpdated: "October 28, 2026"
 platforms: ["Web", "Android", "iOS"]
 developer: "ICI Laboratories (Educational club)"
-collaboration: "Advised by Dr. Walter Alexander Mata López (Director of FIME)"
 contactEmail: "icilaboratories@gmail.com"
 order: 2
 icon: "studio"
@@ -18,14 +17,11 @@ accountDeletion:
   supported: true
   email: "icilaboratories@gmail.com"
   subject: "Data Deletion Request - SARA Educational Platform"
-  processingDays: 15
-  responsible: "ICI Laboratories Privacy & Compliance Team"
+  responsible: "ICI Laboratories privacy contact"
 offlineOnly: false
 ---
 
-This Privacy Policy describes how personal data is collected and processed within the **SARA** educational platform (Learning and Academic Performance System), developed and operated independently by **ICI Laboratories**, a student-led educational tech club. Service operations are managed exclusively by the club, disclaiming all institutional, legal, or administrative liability from the University of Colima (UdeC) and the School of Electromechanical Engineering (FIME), with the academic advisory of **Dr. Walter Alexander Mata López**, Director of the faculty.
-
-By accessing SARA as a student, faculty member, or academic coordinator, your information is governed by the principles detailed herein.
+This policy describes personal data processing in **SARA** (Sistema de Aprendizaje y Retroalimentación Asistida), developed and operated by **ICI Laboratories**, an independent student-led educational club. The club administers and maintains its own services.
 
 ---
 
@@ -34,7 +30,7 @@ By accessing SARA as a student, faculty member, or academic coordinator, your in
 SARA relies on the central **SARA ID** identity service for user authentication.
 
 - When signing in to SARA, you authenticate through your **SARA Account** (via institutional email or Google federation).
-- SARA ID provides this platform only with your universal unique identifier (UUID), display name, and verified email address.
+- SARA ID provides account data such as UUID, name and email, and may include educational profile, memberships and permissions depending on the integration. Email verification status depends on the account flow.
 - Course enrollments, classroom assignments, virtual groups, student/instructor roles, and academic marks are managed and securely isolated within the SARA educational environment.
 
 To understand how your credentials and primary sessions are safeguarded, see the [SARA ID Privacy Policy](/en/sara-id/).
@@ -70,10 +66,10 @@ SARA incorporates AI-driven pedagogical assistance modules (SARA Studio and conc
 1. **Formative feedback:** The assistant evaluates student submissions within the context of specific lesson materials to provide step-by-step explanations, reading suggestions, and conceptual clarity.
 2. **Synthesis & knowledge structuring:** Assists in generating review outlines and study summaries based strictly on course content provided by instructors.
 
-### Data protection and AI sovereignty
-- **No training of public commercial models:** Student assignments, essays, private documents, and grades **are never used to train, retrain, or fine-tune third-party commercial public AI models**.
-- **Contextual isolation:** Requests are processed within secure, enterprise-grade cloud environments bound by strict data protection agreements, utilizing only the minimal context needed to answer the query.
-- **Human oversight:** AI features serve as supplementary learning aids; formal grading, curriculum evaluations, and academic decisions remain exclusively with human instructors.
+### Processing through AI services
+The assistant processes the query and the documents or contextual information supplied to it. Requests may pass through the model providers configured for the service. Processing location, retention and possible use of data to improve or train models depend on the provider used and the service configuration. You can ask the privacy contact which provider processes your queries and which conditions apply.
+
+Avoid including sensitive personal information or identifiable third-party records that are not necessary for the task. AI output may contain errors and should be reviewed before use in educational decisions.
 
 ---
 
@@ -89,57 +85,38 @@ ICI Laboratories **never sells, leases, or monetizes** student data or academic 
 
 ---
 
-## 05. Data retention and academic records
+## 05. Data retention
+Account-linked coursework and files remain in the service while needed for its functions, support and the resolution of requests. The end of a course or academic term does not automatically delete coursework and files from your account.
 
-Data is retained during active school terms and while the student or instructor remains affiliated with the institution.
-
-Upon conclusion of an academic period:
-- Personal files in SARA Drive remain accessible to the student while their SARA Account remains in good standing.
-- Official grade transcripts, examination rosters, and accreditation records become part of the university's permanent educational archives and are preserved according to official university regulations.
+You can ask about the retention of your data and request cancellation through the privacy contact. The response will explain the scope for records, backups and data held by another application, along with any applicable retention or blocking.
 
 ---
 
-## 06. Requesting data deletion
+## 06. Privacy requests and deletion
 
 <div id="eliminacion-de-cuenta" class="compliance-card">
 
-### Requesting data deletion from SARA
+To request access, rectification, cancellation or opposition, revoke consent, or limit use or disclosure, follow the [privacy request procedure](/en/requests/). Specify **SARA**, the email associated with your account and the records concerned. Do not send passwords or authentication codes.
 
-You may request the removal of personal files and educational submissions from SARA via the following procedure:
-
-#### Procedure:
-1. Send an email to **[icilaboratories@gmail.com](mailto:icilaboratories@gmail.com)**.
-2. Subject line: **"Data Deletion Request - SARA Educational Platform"**.
-3. Include:
-   - Full name.
-   - Institutional email address linked to your SARA Account.
-   - Specific indication of whether you request the purge of individual coursework files or a complete profile deletion.
-4. You may also request an export archive of your academic submissions prior to deletion.
-
-#### Institutional exception:
-- Personal drafts and supplemental files will be permanently purged.
-- In accordance with education laws and university regulations, official grade rosters, examination records, and certified course transcripts cannot be erased through this technical portal and must be addressed with the relevant faculty administration.
-
-#### Turnaround:
-Verified technical requests are processed within a maximum of **15 business days**.
+Deleting data in SARA and cancelling the central SARA Account are different requests. We will explain the scope, identity checks, applicable blocking or retention grounds and outcome. Requests are handled through the privacy procedure, which explains the applicable response and implementation periods.
 
 </div>
 
 ---
 
-## 07. Security of educational data
+## 07. Security
+The service uses HTTPS for public connections and access controls for account-linked resources. Protecting your account also requires keeping your credentials private and closing sessions you no longer use.
 
-We apply stringent organizational and technical safeguards:
-- All data in transit is encrypted using modern TLS 1.3 / HTTPS protocols.
-- Server-side encryption at rest for cloud databases and document repositories.
-- Role-Based Access Control (RBAC) ensuring students can only access their own submissions and evaluations.
+Report suspected unauthorized access to the privacy contact without including credentials.
 
 ---
 
 ## 08. Contact information
 
+**Data controller:** Pedro Antonio Ibarra Facio, operating the independent educational club ICI Laboratories. See the [privacy request procedure](/en/requests/) for the common contact and exercise of rights.
+
 For questions regarding data processing in the SARA Educational Platform:
 
-- **Privacy & Compliance Team:** [icilaboratories@gmail.com](mailto:icilaboratories@gmail.com)
-- **Host Institution:** ICI Laboratories
+- **Privacy contact:** [icilaboratories@gmail.com](mailto:icilaboratories@gmail.com)
+- **Developer:** ICI Laboratories
 - **Privacy Center:** [https://privacy.ici-labs.com/en/](https://privacy.ici-labs.com/en/)

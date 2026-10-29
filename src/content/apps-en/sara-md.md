@@ -2,10 +2,9 @@
 title: "SARA MD"
 shortDescription: "Fast, private, local-first Markdown editor for Android and iOS with LaTeX math formulas, Mermaid diagrams, and offline document conversions."
 category: "Productivity & Utilities"
-lastUpdated: "October 2026"
+lastUpdated: "October 28, 2026"
 platforms: ["Android", "iOS"]
 developer: "ICI Laboratories (Educational club)"
-collaboration: "Advised by Dr. Walter Alexander Mata López (Director of FIME)"
 contactEmail: "icilaboratories@gmail.com"
 order: 4
 icon: "docmd"
@@ -19,9 +18,9 @@ accountDeletion:
 offlineOnly: true
 ---
 
-This Privacy Policy describes data handling practices in **SARA MD**, a mobile application developed independently by **ICI Laboratories** (an educational tech club advised by Dr. Walter Alexander Mata López, Director of FIME). ICI Laboratories operates autonomously, disclaiming any institutional, legal, or administrative liability from the University of Colima (UdeC) and FIME.
+**SARA MD** is developed by **ICI Laboratories**, an independent student-led educational club.
 
-SARA MD is architected under an absolute **local-first (on-device)** philosophy. We believe your notes, formulas, diagrams, and research drafts belong solely to you. The app operates with zero telemetry, zero advertising, and zero data transmission to external servers.
+SARA MD follows a **local-first (on-device)** model for editing and storing documents. Exported files, remote content and device-level backups can involve other services under their own conditions.
 
 ---
 
@@ -48,13 +47,13 @@ To enable document creation, the app requests minimal operating system capabilit
 - When previewing Markdown notes containing remote internet image links, SARA MD **does not automatically download external images**, preventing third-party servers from logging your IP address or tracking when notes are opened. A private placeholder is shown unless you explicitly choose to load the image.
 
 ### External Links
-- The application only opens links with secure protocols (`http`, `https`, `mailto`), delegating navigation to your system's default browser upon deliberate interaction.
+- The application only opens links with allowed protocols (`http`, `https`, `mailto`), delegating navigation to your system's default browser upon deliberate interaction.
 
 ---
 
 ## 03. User sovereignty and document export
 
-You retain absolute ownership and control over your writings:
+You can manage your documents and choose when to export them:
 
 - No note or draft ever leaves your device unattended.
 - Document exports utilize your operating system's native Share Sheet. Files are only shared when you consciously dispatch them to other installed apps (such as Google Drive, an email client, or local messaging apps).
@@ -67,13 +66,13 @@ Because SARA MD transmits and stores zero information on ICI Laboratories server
 
 - There are no cloud databases or remote user profiles to purge.
 - You can delete any note or draft at any time from within the app library.
-- When you uninstall the application from your device settings, **all documents, cached previews, and local configurations stored in the app sandbox are immediately and permanently erased by the operating system**.
+- Uninstalling generally removes application-local data, but exported files, operating-system backups or copies in other applications may remain and must be managed separately.
 
 ---
 
 ## 05. Security
 
-Because your files reside strictly on your mobile device, their security is reinforced by your hardware's native encryption and authentication controls (OS disk encryption, device PIN, fingerprint, or biometric Face ID).
+Because your files reside strictly on your mobile device, their security also depends on the configuration and protections available on your device. Use a screen lock and review your backup and export settings.
 
 ---
 
@@ -85,11 +84,13 @@ SARA MD is a general-purpose writing and productivity tool suitable for all audi
 
 ## 07. Policy updates
 
-If future releases introduce optional features (such as voluntary end-to-end encrypted backup sync), this policy will be updated in advance and detailed in the release notes on Google Play and Apple App Store.
+Updates that change data processing will be communicated at this URL and in the application release notes before those changes take effect.
 
 ---
 
 ## 08. Contact information
+
+**Data controller:** Pedro Antonio Ibarra Facio, operating the independent educational club ICI Laboratories. See the [privacy request procedure](/en/requests/) for the common contact and exercise of rights.
 
 For questions or suggestions regarding SARA MD:
 

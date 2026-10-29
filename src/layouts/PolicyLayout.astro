@@ -1,5 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import ControllerContact from '../components/ControllerContact.astro';
 
 interface Heading {
   depth: number;
@@ -50,7 +51,10 @@ const {
 } = Astro.props;
 
 const isEn = lang === 'en';
-const filteredHeadings = headings.filter(h => h.depth === 2);
+const filteredHeadings = [
+  ...headings.filter(h => h.depth === 2),
+  { depth: 2, slug: 'responsable-contacto', text: isEn ? 'Controller and contact' : 'Responsable y contacto' },
+];
 const pageTitle = isEn
   ? `${title} — Privacy Policy | ICI Laboratories`
   : `${title} — Política de Privacidad | ICI Laboratories`;
@@ -223,6 +227,8 @@ const servicesHref = isEn ? '/en/#services' : '/#servicios';
         <article class="prose policy-content">
           <slot />
 
+          <ControllerContact lang={lang} />
+
           <div class="policy-audit-footer">
             <div class="audit-icon" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -232,12 +238,7 @@ const servicesHref = isEn ? '/en/#services' : '/#servicios';
             </div>
             <div class="audit-text">
               <p class="audit-rev">
-                <strong>{isEn ? "Document revision:" : "Revisión del documento:"}</strong> {lastUpdated} &middot; {isEn ? "ICI Laboratories Privacy Center" : "Centro de Privacidad de ICI Laboratories"}
-              </p>
-              <p class="audit-disclaimer">
-                {isEn
-                  ? "ICI Laboratories is an independent student educational tech club. We disclaim all institutional liability from the University of Colima (UdeC) and FIME. Academically advised by Dr. Walter Alexander Mata López (Director of FIME)."
-                  : "ICI Laboratories es un club educativo independiente de desarrollo tecnológico. Se deslinda totalmente de cualquier responsabilidad institucional a la Universidad de Colima (UdeC) y a la FIME; proyecto asesorado académicamente por el Dr. Walter Alexander Mata López (director de la facultad)."}
+                <strong>{isEn ? "Last updated:" : "Última actualización:"}</strong> {lastUpdated} &middot; {isEn ? "ICI Laboratories Privacy Center" : "Centro de Privacidad de ICI Laboratories"}
               </p>
             </div>
           </div>

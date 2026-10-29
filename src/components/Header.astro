@@ -10,7 +10,9 @@ const { currentSlug, lang = 'es' } = Astro.props;
 const isEn = lang === 'en';
 
 const homeHref = isEn ? '/en/' : '/';
-const switchLangHref = isEn
+const switchLangHref = currentSlug === "privacy-requests"
+  ? (isEn ? "/solicitudes/" : "/en/requests/")
+  : isEn
   ? (currentSlug ? `/${currentSlug}/` : '/')
   : (currentSlug ? `/en/${currentSlug}/` : '/en/');
 ---

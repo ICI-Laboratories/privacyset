@@ -1,0 +1,46 @@
+---
+import { privacyController } from '../data/controller';
+
+interface Props { lang?: 'es' | 'en' }
+const { lang = 'es' } = Astro.props;
+const isEn = lang === 'en';
+---
+
+<section id="responsable-contacto" class="controller-contact" aria-labelledby="controller-contact-title">
+  <h2 id="controller-contact-title">{isEn ? 'Controller and contact' : 'Responsable y contacto'}</h2>
+  <p>
+    {privacyController.name}, {isEn ? 'operating under the name' : 'operador bajo el nombre'} {privacyController.organization}.
+  </p>
+  <div data-nosnippet>
+    <address>
+      <span class="contact-label">{isEn ? 'Address for notices:' : 'Domicilio para notificaciones:'}</span>
+      {privacyController.address}.
+    </address>
+  </div>
+  <p>
+    {isEn ? 'Privacy contact:' : 'Contacto de privacidad:'}{' '}
+    <a href={`mailto:${privacyController.email}`}>{privacyController.email}</a>
+  </p>
+</section>
+
+<style>
+  .controller-contact {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--surface-border);
+    scroll-margin-top: 1.5rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+  .controller-contact h2 {
+    margin: 0 0 0.75rem;
+    color: var(--text-primary);
+    font-size: 1.15rem;
+    line-height: 1.4;
+  }
+  .controller-contact p { margin: 0.6rem 0; }
+  .controller-contact address { font: inherit; }
+  .contact-label { display: block; }
+  .controller-contact a { text-decoration: underline; text-underline-offset: 3px; }
+</style>

@@ -2,10 +2,9 @@
 title: "SARA — Plataforma educativa"
 shortDescription: "Entorno académico para la gestión de asignaturas, entregas de actividades, evaluaciones formativas y asistencia pedagógica con IA."
 category: "Educación y Aprendizaje"
-lastUpdated: "Octubre 2026"
+lastUpdated: "28 de octubre de 2026"
 platforms: ["Web", "Android", "iOS"]
 developer: "ICI Laboratories (Club educativo)"
-collaboration: "Asesorado por Dr. Walter Alexander Mata López (Director FIME)"
 contactEmail: "icilaboratories@gmail.com"
 order: 2
 icon: "studio"
@@ -18,14 +17,11 @@ accountDeletion:
   supported: true
   email: "icilaboratories@gmail.com"
   subject: "Solicitud de eliminación de datos - SARA Educativo"
-  processingDays: 15
-  responsible: "Equipo de Privacidad y Cumplimiento de ICI Laboratories"
+  responsible: "Contacto de privacidad de ICI Laboratories"
 offlineOnly: false
 ---
 
-Esta Política de Privacidad describe el tratamiento de datos personales en la plataforma y aplicación educativa **SARA** (Sistema de Aprendizaje y Rendimiento Académico), desarrollada y operada de forma independiente por **ICI Laboratories**, un club educativo de desarrollo tecnológico. La gestión de este servicio corresponde exclusivamente al club, deslindando totalmente de responsabilidad institucional, operativa o jurídica a la Universidad de Colima (UdeC) y a la Facultad de Ingeniería Electromecánica (FIME), contando con el asesoramiento académico del **Dr. Walter Alexander Mata López**, director de la facultad.
-
-Al acceder a SARA como estudiante, docente o coordinador académico, el tratamiento de tu información se rige por las directrices aquí establecidas.
+Esta política describe el tratamiento de datos personales en **SARA** (Sistema de Aprendizaje y Retroalimentación Asistida), desarrollada y operada por **ICI Laboratories**, un club educativo independiente impulsado por estudiantes. El club administra y mantiene sus propios servicios.
 
 ---
 
@@ -34,7 +30,7 @@ Al acceder a SARA como estudiante, docente o coordinador académico, el tratamie
 SARA utiliza el servicio central **SARA ID** para la autenticación de usuarios.
 
 - Cuando inicias sesión en SARA, lo haces mediante tu **Cuenta SARA** (correo institucional o federación con Google).
-- SARA ID provee a esta plataforma únicamente tu identificador único (UUID), nombre visible y correo electrónico verificado.
+- SARA ID proporciona datos de cuenta, como UUID, nombre y correo, y puede incluir perfil educativo, membresías y permisos según la integración. El estado de verificación del correo depende del flujo de la cuenta.
 - La gestión de tus cursos, grupos, materias inscritas, roles dentro del aula virtual (estudiante o profesor) y calificaciones es administrada y resguardada de forma específica dentro de la plataforma educativa SARA.
 
 Para conocer cómo se protegen tus credenciales y sesiones maestras, consulta la [Política de Privacidad de SARA ID](/sara-id/).
@@ -70,10 +66,10 @@ SARA integra módulos de asistencia pedagógica impulsados por modelos de inteli
 1. **Generación de retroalimentación didáctica:** El asistente analiza las entregas o consultas del alumno en el contexto de la lección para ofrecer explicaciones paso a paso, sugerencias de lectura y aclaración de dudas conceptuales.
 2. **Síntesis y mapas de conocimiento:** Facilita la generación de resúmenes de estudio y esquemas de lección a partir de los documentos provistos por el docente.
 
-### Protección y soberanía de los datos académicos ante la IA
-- **Sin entrenamiento de modelos públicos comerciales:** Las tareas, respuestas, documentos privados y calificaciones de los estudiantes **no se utilizan para entrenar, reentrenar ni ajustar modelos de lenguaje comerciales públicos de terceros**.
-- **Aislamiento contextual:** El procesamiento de las peticiones analíticas se realiza dentro de entornos seguros con acuerdos de procesamiento confidencial de datos, utilizando exclusivamente el contexto necesario para responder a la consulta del usuario.
-- **Supervisión docente:** La asistencia de IA es un soporte formativo complementario; las evaluaciones finales, calificaciones oficiales y decisiones académicas competen siempre a los profesores titulares de cada asignatura.
+### Tratamiento mediante servicios de IA
+El asistente procesa la consulta y los documentos o información de contexto que se le proporcionan. Las solicitudes pueden pasar por los proveedores de modelos configurados para el servicio. El lugar de procesamiento, la conservación de datos y su posible uso para mejorar o entrenar modelos dependen del proveedor utilizado y de la configuración del servicio. Puedes consultar qué proveedor interviene y las condiciones aplicables a tus consultas mediante el contacto de privacidad.
+
+Evita incluir datos personales sensibles o registros identificables de terceros que no sean necesarios para la tarea. Las respuestas de IA pueden contener errores y deben revisarse antes de utilizarlas en decisiones educativas.
 
 ---
 
@@ -89,54 +85,35 @@ ICI Laboratories **no vende ni comercializa** datos académicos o personales con
 
 ---
 
-## 05. Conservación de datos y expedientes escolares
+## 05. Conservación de datos
+Las actividades y archivos vinculados a la cuenta permanecen en el servicio mientras sean necesarios para sus funciones, soporte y atención de solicitudes. El cierre de un curso o ciclo escolar no elimina automáticamente las actividades y archivos de tu cuenta.
 
-Los datos se conservan durante el ciclo escolar activo y mientras el estudiante o docente forme parte del programa académico respectivo.
-
-Una vez finalizado un período escolar:
-- Los documentos de trabajo y archivos personales en SARA Drive permanecen accesibles para el usuario mientras su cuenta conserve el servicio activo.
-- Los registros de calificaciones oficiales, actas de examen y evidencias de acreditación curricular forman parte del expediente escolar institucional y se conservan de acuerdo con las normativas y plazos que rigen a la Universidad de Colima y a la Facultad respectiva.
+Puedes consultar la conservación de tus datos y solicitar su cancelación mediante el canal de privacidad. La respuesta explicará el alcance sobre los registros, las copias de seguridad y los datos que conserve otra aplicación, así como cualquier conservación o bloqueo que corresponda.
 
 ---
 
-## 06. Cómo solicitar la eliminación de datos
+## 06. Solicitudes de privacidad y eliminación
 
 <div id="eliminacion-de-cuenta" class="compliance-card">
 
-### Solicitud de eliminación de datos de SARA
+Para solicitar acceso, rectificación, cancelación u oposición, revocar el consentimiento o limitar el uso o divulgación, sigue el [procedimiento de solicitudes de privacidad](/solicitudes/). Indica **SARA**, el correo asociado a tu cuenta y los registros que deseas consultar o tratar. No envíes contraseñas ni códigos de autenticación.
 
-Puedes solicitar la supresión de tus archivos personales y datos generados en SARA mediante el siguiente procedimiento:
-
-#### Procedimiento para ejercer la solicitud:
-1. Envía un correo electrónico a **[icilaboratories@gmail.com](mailto:icilaboratories@gmail.com)**.
-2. En el asunto escribe: **"Solicitud de eliminación de datos - SARA Educativo"**.
-3. En el mensaje indica:
-   - Tu nombre completo.
-   - El correo electrónico institucional asociado a tu Cuenta SARA.
-   - Si solicitas la eliminación de archivos específicos (entregas multimedia, borradores en SARA Drive) o la baja completa de tu perfil escolar.
-4. Opcionalmente, puedes solicitar la descarga de un archivo comprimido con tus entregas académicas antes de proceder con el borrado.
-
-#### Alcance y excepciones legales:
-- Se eliminarán tus archivos personales, borradores de tareas, notas privadas y grabaciones de audio en nuestros servidores.
-- **Excepción institucional:** En cumplimiento de las leyes educativas y la reglamentación universitaria, los registros históricos de calificaciones finales, evaluaciones asentadas en actas y constancias curriculares oficiales no pueden ser eliminados a través de esta vía técnica, requiriendo en su caso los trámites administrativos ante la secretaría académica de la facultad correspondiente.
-
-#### Plazo de atención:
-Las solicitudes técnicas de supresión de datos se verifican y resuelven en un plazo máximo de **15 días hábiles**.
+Eliminar datos de SARA y cancelar la Cuenta SARA central son solicitudes diferentes. Te informaremos del alcance, las comprobaciones de titularidad, los supuestos de bloqueo o conservación aplicables y el resultado. La solicitud se atiende mediante el procedimiento de privacidad, que explica los plazos de respuesta y ejecución aplicables.
 
 </div>
 
 ---
 
-## 07. Seguridad de los datos académicos
+## 07. Seguridad
+El servicio utiliza HTTPS en las conexiones públicas y controles de acceso a los recursos vinculados a las cuentas. La protección de la cuenta también requiere mantener tus credenciales privadas y cerrar las sesiones que ya no utilices.
 
-Implementamos medidas de seguridad técnicas y organizativas para salvaguardar la integridad de los contenidos educativos:
-- Comunicaciones cifradas de extremo a servidor mediante TLS 1.3 / HTTPS.
-- Cifrado en reposo para el almacenamiento de archivos y respaldos.
-- Control estricto de accesos basado en roles (estudiante, docente, coordinador) para garantizar que ningún usuario no matriculado pueda acceder a las evaluaciones o tareas de otro estudiante.
+Comunica cualquier sospecha de acceso indebido mediante el canal de privacidad sin incluir credenciales.
 
 ---
 
 ## 08. Contacto
+
+**Responsable del tratamiento:** Pedro Antonio Ibarra Facio, operador del club educativo independiente ICI Laboratories. Consulta el [procedimiento de solicitudes de privacidad](/solicitudes/) para el contacto común y el ejercicio de derechos.
 
 Si tienes consultas sobre el tratamiento de tus datos en la plataforma educativa SARA o deseas orientación sobre tus derechos de privacidad:
 

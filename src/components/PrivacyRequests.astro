@@ -1,0 +1,36 @@
+---
+import ControllerContact from './ControllerContact.astro';
+
+interface Props { lang?: 'es' | 'en' }
+const { lang = 'es' } = Astro.props;
+const isEn = lang === 'en';
+---
+<article class="container requests">
+  <h1>{isEn ? 'Privacy requests and ARCO rights' : 'Solicitudes de privacidad y derechos ARCO'}</h1>
+  <p>{isEn ? 'Controller: Pedro Antonio Ibarra Facio, operating under ICI Laboratories. Last updated: 28 October 2026.' : 'Responsable: Pedro Antonio Ibarra Facio, operador bajo el nombre ICI Laboratories. Última actualización: 28 de octubre de 2026.'}</p>
+  <h2>{isEn ? 'What you can request' : 'Qué puedes solicitar'}</h2>
+  <p>{isEn ? 'Access to your personal data, rectification, cancellation or opposition (ARCO), limits on use or disclosure, or withdrawal of consent. Identify the service and whether the request concerns your SARA Account or data in a connected application.' : 'Acceso a tus datos personales, rectificación, cancelación u oposición (ARCO), limitación del uso o divulgación y revocación del consentimiento. Indica el servicio y si la solicitud corresponde a la Cuenta SARA o a datos de una aplicación conectada.'}</p>
+  <h2>{isEn ? 'How to submit a request' : 'Cómo presentar una solicitud'}</h2>
+  <ol>
+    <li>{isEn ? 'Write to ' : 'Escribe a '}<a href="mailto:icilaboratories@gmail.com">icilaboratories@gmail.com</a>{isEn ? ' with the subject “Privacy request” and the service name.' : ' con el asunto “Solicitud de privacidad” y el nombre del servicio.'}</li>
+    <li>{isEn ? 'Provide your name, a contact email, the data or account concerned, the right you wish to exercise and a clear description. For correction, state the change requested and relevant supporting information.' : 'Indica tu nombre, un correo para recibir respuesta, los datos o cuenta involucrados, el derecho que deseas ejercer y una descripción clara. Para rectificación, indica el cambio solicitado y la información pertinente que lo sustente.'}</li>
+    <li>{isEn ? 'Identity or representation must be verified. We will arrange a proportionate verification method. Do not attach passwords, verification codes, recovery links or full identity documents in your first message; wait for instructions about a suitable channel if supporting documents are needed.' : 'Es necesario acreditar identidad o representación. Coordinaremos una comprobación proporcional. No adjuntes contraseñas, códigos, enlaces de recuperación ni documentos completos de identificación en el primer correo; espera indicaciones sobre un canal adecuado si se requiere documentación.'}</li>
+  </ol>
+  <h2>{isEn ? 'Response and implementation periods' : 'Plazos de respuesta y ejecución'}</h2>
+  <p>{isEn ? 'For ARCO requests, we will communicate the determination within a maximum of 20 business days from receipt. If granted, it will be implemented within the following 15 business days after the determination is communicated. Either period may be extended once for an equal period when justified; we will inform you. Requests for clarification and other applicable procedural rules will be explained for your case.' : 'Para solicitudes ARCO comunicaremos la determinación en un máximo de 20 días hábiles desde la recepción. Si procede, se hará efectiva dentro de los 15 días hábiles siguientes a la comunicación de la determinación. Cada plazo podrá ampliarse una sola vez por un periodo igual cuando las circunstancias lo justifiquen; te lo informaremos. Las prevenciones y demás reglas procedimentales aplicables se explicarán para tu caso.'}</p>
+  <p>{isEn ? 'Exercising these rights is free, subject to legally permitted reproduction or delivery costs. Withdrawal of consent does not have retroactive effect; we will explain any consequences or applicable limitations.' : 'El ejercicio de estos derechos es gratuito, salvo los costos de reproducción o envío que legalmente procedan. La revocación del consentimiento no tiene efectos retroactivos; explicaremos sus consecuencias o limitaciones aplicables.'}</p>
+  <h2>{isEn ? 'Scope of cancellation' : 'Alcance de la cancelación'}</h2>
+  <p>{isEn ? 'We will explain any justified blocking, retention, partial outcome or refusal. Deleting a central account does not automatically erase data held by another service; we will identify the relevant operator where appropriate.' : 'Explicaremos cualquier bloqueo, conservación justificada, atención parcial o negativa. Eliminar una cuenta central no borra automáticamente los datos que conserve otro servicio; identificaremos al operador pertinente cuando corresponda.'}</p>
+  <p>{isEn ? 'For concerns about the response, reply through this channel and request clarification. You may also exercise the remedies available before the competent authority; using this channel does not waive those rights.' : 'Si tienes dudas sobre la respuesta, contesta por este canal y solicita aclaración. También puedes ejercer los medios de protección disponibles ante la autoridad competente; utilizar este canal no implica renunciar a ellos.'}</p>
+  <ControllerContact lang={lang} />
+  <p><a href="https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf">{isEn ? 'LFPDPPP — official statutory text (articles 15–16 and 27–34)' : 'LFPDPPP — texto oficial (artículos 15–16 y 27–34)'}</a></p>
+</article>
+<style>
+.requests { max-width: 850px; line-height: 1.8; }
+h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.2; margin-bottom: 1.5rem; }
+h2 { font-size: 1.3rem; margin: 2rem 0 0.7rem; }
+p { margin: 0.8rem 0; }
+ol { padding-left: 1.5rem; }
+li { margin: 0.6rem 0; }
+a { text-decoration: underline; text-underline-offset: 3px; }
+</style>

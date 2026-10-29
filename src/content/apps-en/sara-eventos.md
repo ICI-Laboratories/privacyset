@@ -2,47 +2,35 @@
 title: "SARA Eventos"
 shortDescription: "Academic and institutional event platform for schedule coordination, activity registration, capacity control, and certificates."
 category: "Event & Conference Management"
-lastUpdated: "October 2026"
+lastUpdated: "October 28, 2026"
 platforms: ["Web", "Mobile"]
 developer: "ICI Laboratories (Educational club)"
-collaboration: "Advised by Dr. Walter Alexander Mata López (Director of FIME)"
 contactEmail: "icilaboratories@gmail.com"
 order: 3
 icon: "events"
 summary:
   whatIs: "SARA Eventos is the platform within the SARA ecosystem designed for scheduling conferences, engineering symposia, workshop registrations, and physical venue capacity management."
   dataUsed: "SARA Account profile (UUID, name, email), degree program or affiliation, reserved itinerary sessions in My Schedule, verified attendance, and issued certificates."
-  purposes: "Manage attendee registrations, enforce real-time room capacity limits, publish conference schedules, verify physical or virtual attendance, and generate official credentials."
+  purposes: "Manage attendee registrations, enforce real-time room capacity limits, publish conference schedules, verify physical or virtual attendance, and generate participation certificates."
   contact: "icilaboratories@gmail.com"
 accountDeletion:
   supported: true
   email: "icilaboratories@gmail.com"
   subject: "Event Data Deletion Request - SARA Eventos"
-  processingDays: 15
-  responsible: "ICI Laboratories Privacy & Compliance Team"
+  responsible: "ICI Laboratories privacy contact"
 offlineOnly: false
 ---
 
 This Privacy Policy governs the processing of personal data within **SARA Eventos**, the platform developed by **ICI Laboratories** (an independent student educational tech club) for managing academic, engineering, and institutional conferences, symposiums, and student summits (such as **TecnoFIME**).
 
-By registering for or participating in any event coordinated through SARA Eventos, you accept the governance provisions detailed below.
+This notice explains which data are used when you register for or participate in events managed through SARA Eventos.
 
 ---
 
-## 01. Event organizers and scope of responsibilities
+## 01. Event organizers and responsibilities
+**ICI Laboratories** is an independent student-led educational club that develops and operates the platform. The club administers and maintains its own service.
 
-We distinguish between technological platform operations and individual event coordination:
-
-- **Technology Provider:** **ICI Laboratories** is an independent educational tech club that develops, operates, and secures the software. It operates with full technological autonomy, disclaiming any institutional, legal, or administrative liability from the University of Colima (UdeC) and the School of Electromechanical Engineering (FIME), with the academic advisory of **Dr. Walter Alexander Mata López**, Director of the faculty.
-- **Event Organizing Committees:** Individual events hosted on the platform (such as *TecnoFIME*) are coordinated by specific organizing committees (departments, professors, or student committees), who determine registration criteria, schedules, and certificate eligibility.
-
-### Clear event-specific disclosure
-Each event hosted on the platform explicitly identifies:
-1. The faculty, department, or academic institution hosting the gathering.
-2. The responsible organizing committee.
-3. The specific logistics and curricular scope of offered workshops and lectures.
-
-If an event involves external corporate sponsors, independent third-party partners, or specific regulatory frameworks, a **supplementary event-specific privacy notice** is presented prior to registration.
+The organizing committee manages each event's activities and receives registration and attendance data to coordinate participation, as described in section 04. To identify an organizer or ask about data processing for a particular event, include the event name when contacting us.
 
 ---
 
@@ -51,7 +39,7 @@ If an event involves external corporate sponsors, independent third-party partne
 SARA Eventos integrates natively with **SARA ID**:
 
 - You reserve your workshop seats and keynote sessions by logging in with your central **SARA Account**.
-- SARA ID transfers only your immutable identifier (UUID), full name, and verified institutional email.
+- SARA ID provides account data such as UUID, name and email, and may include educational profile, memberships and permissions depending on the integration. Email may be personal or institutional; verification depends on the account flow.
 - Your session reservations, personalized itinerary (*My Schedule*), waitlist positions, and certificates are bound to your central UUID, ensuring event organizers never solicit or handle your master password.
 
 For more information, see the [SARA ID Privacy Policy](/en/sara-id/).
@@ -77,8 +65,8 @@ We collect only the information strictly required for event logistics, safety, a
 ### Processing purposes
 - Manage safe capacity limits across campus facilities.
 - Notify participants of room changes, schedule adjustments, or speaker updates.
-- Verify attendance thresholds required for official curricular credit.
-- Produce aggregated, fully anonymized logistical statistics to enhance future event planning.
+- Verify attendance thresholds required for participation certificates under the organizer’s criteria.
+- Produce aggregated logistical statistics to enhance future event planning.
 
 ---
 
@@ -99,53 +87,36 @@ Authorized organizers and department chairs have access only to attendee lists f
 ---
 
 ## 05. Retention of event records
+Registrations, attendance and issued certificates are used to operate the event and address participation questions. The end of an event or cancellation of a reservation does not automatically delete all associated records.
 
-- **Logistical records and room lists:** Maintained in the active system for the duration of the event and up to 60 calendar days post-event for attendance clarifications.
-- **Issued certificates and validation hashes:** Maintained permanently in the public document validator to allow employers and academic institutions to verify the authenticity of completed certificates.
-- **Security audit trails:** Retained on a rolling 90-day basis.
+Where an event offers certificate verification, the associated records are used to confirm issuance. You can ask about retention and request cancellation of your data through the privacy procedure. The response will explain any effect on verification of your certificate.
 
 ---
 
-## 06. Cancellation and data deletion
+## 06. Cancellation and privacy requests
 
 <div id="eliminacion-de-cuenta" class="compliance-card">
 
-### Cancelling participation and removing event records
+If the event offers cancellation in *My Schedule*, you may use it to release your reservation under its stated conditions. Cancelling a reservation does not necessarily remove all historical records.
 
-You have the right to cancel your registration or request the deletion of your attendance records:
+For access, rectification, cancellation or opposition, withdrawal of consent, or limits on use or disclosure, follow the [privacy request procedure](/en/requests/). Specify **SARA Eventos**, the event, your registered email and the data concerned. Do not send passwords or authentication codes.
 
-#### 1. Pre-event cancellation:
-You can unregister from any workshop or lecture directly within *My Schedule* prior to the session start time, immediately releasing your seat to attendees on the waitlist.
-
-#### 2. Removing historical attendance records:
-1. Email **[icilaboratories@gmail.com](mailto:icilaboratories@gmail.com)**.
-2. Subject line: **"Event Data Deletion Request - SARA Eventos"**.
-3. Specify your full name, registered email, and the relevant event (e.g., TecnoFIME 2026).
-4. State whether you request removal from contact rosters or deletion of non-accredited workshop records.
-
-#### Note on issued certificates:
-Deleting the record of an officially accredited credential will permanently invalidate the public verification folio associated with your certificate. Academic credits already submitted to university registrar systems remain subject to departmental guidelines.
-
-#### Turnaround:
-Requests are processed within **15 business days**.
+The response will explain any effect on certificate verification and any justified retention or blocking. The procedure explains applicable response and implementation periods.
 
 </div>
 
 ---
 
 ## 07. Technical security
-
-SARA Eventos implements robust technical safeguards:
-- Session verification mediated by a dedicated backend-for-frontend (BFF) architecture.
-- Atomic database transactions to prevent double-booking and venue capacity overflows.
-- Comprehensive TLS encryption across all network communications.
+Public access uses HTTPS and the service checks account sessions and permissions. Keep your credentials private and report suspected incidents through the privacy contact.
 
 ---
 
 ## 08. Contact information
 
+**Data controller:** Pedro Antonio Ibarra Facio, operating the independent educational club ICI Laboratories. See the [privacy request procedure](/en/requests/) for the common contact and exercise of rights.
+
 For questions regarding data privacy in SARA Eventos or certificate validations:
 
-- **Privacy & Compliance Desk:** [icilaboratories@gmail.com](mailto:icilaboratories@gmail.com)
-- **School of Electromechanical Engineering (FIME):** [https://fime.ucol.mx](https://fime.ucol.mx)
+- **Privacy contact:** [icilaboratories@gmail.com](mailto:icilaboratories@gmail.com)
 - **Privacy Center:** [https://privacy.ici-labs.com/en/](https://privacy.ici-labs.com/en/)
