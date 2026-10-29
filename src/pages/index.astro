@@ -4,54 +4,106 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import AppCard from '../components/AppCard.astro';
 
 const allApps = await getCollection('apps');
-// Sort alphabetically by title
-const apps = allApps.sort((a, b) => a.data.title.localeCompare(b.data.title));
+
+// SARA ID es la cuenta central destacada
+const coreApp = allApps.find(app => app.data.isCoreAccount || app.id === 'sara-id');
+
+// Servicios restantes ordenados por el campo 'order'
+const serviceApps = allApps
+  .filter(app => app.id !== 'sara-id' && !app.data.isCoreAccount)
+  .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
 ---
 
 <BaseLayout
-  title="Portal de Políticas de Privacidad | ICI Laboratories"
-  description="Políticas de privacidad y tratamiento de datos personales de las aplicaciones móviles y soluciones de software de ICI Laboratories."
+  title="Centro de privacidad · ICI Laboratories"
+  description="Consulta cómo los servicios de ICI Laboratories utilizan tus datos y cómo gestionar tu Cuenta SARA y tus solicitudes de privacidad."
 >
   <div class="container">
-    <!-- Hero Section -->
+    <!-- 1. Presentación -->
     <section class="hero-section">
       <div class="hero-badge">
-        <span class="pulse-dot"></span>
-        <span>Centro Oficial de Cumplimiento y Privacidad</span>
+        <span class="badge-dot"></span>
+        <span>Centro de privacidad &middot; ICI Laboratories</span>
       </div>
-      <h1 class="hero-title">Políticas de Privacidad</h1>
+      <h1 class="hero-title">Tu información, explicada con claridad.</h1>
       <p class="hero-subtitle">
-        En <strong>ICI Laboratories</strong> nos comprometemos con la protección, transparencia y soberanía de los datos de nuestros usuarios. A continuación se detallan las políticas de privacidad y términos para cada una de nuestras aplicaciones móviles y servicios.
+        Consulta cómo los servicios de ICI Laboratories utilizan tus datos y cómo gestionar tu cuenta y tus solicitudes de privacidad.
       </p>
+    </section>
 
-      <!-- Interactive Search / Filter Box -->
-      <div class="search-box">
-        <div class="search-input-wrapper">
-          <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-          <input
-            type="search"
-            id="app-search"
-            placeholder="Buscar aplicación (ej. SARA, InSituLab, educación...)"
-            aria-label="Buscar aplicación por nombre o categoría"
-          />
+    <!-- 2. Tarjeta destacada: Cuenta SARA -->
+    <section class="core-account-section" aria-label="Cuenta SARA y Servicio de Identidad">
+      <div class="core-card">
+        <div class="core-card-body">
+          <div class="core-header-badge">
+            <span class="core-chip">Identidad central</span>
+            <span class="core-meta-updated">Actualizado: {coreApp?.data.lastUpdated ?? "28 de octubre de 2026"}</span>
+          </div>
+
+          <h2 class="core-title">¿Usas tu Cuenta SARA para iniciar sesión?</h2>
+          <p class="core-desc">
+            <strong>SARA ID</strong> administra tu cuenta y el acceso a las aplicaciones conectadas. Cada aplicación explica por separado cómo utiliza los datos de sus propias funciones.
+          </p>
+
+          <div class="core-features">
+            <div class="core-feature-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+              <span>Credenciales protegidas con derivación criptográfica</span>
+            </div>
+            <div class="core-feature-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 8v4l3 3"></path>
+              </svg>
+              <span>Auditoría de sesiones activas y cierres remotos</span>
+            </div>
+            <div class="core-feature-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <span>Correo transaccional verificado vía buzón operativo</span>
+            </div>
+          </div>
+
+          <div class="core-actions">
+            <a href="/sara-id/" class="btn-primary">
+              <span>Consultar privacidad de SARA ID</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+
+            <a href="https://auth.ici-labs.com" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+              <span>Gestionar mi cuenta</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Apps Catalog Grid -->
-    <section class="apps-section" id="aplicaciones">
+    <!-- 3. Catálogo de servicios -->
+    <section class="services-section" id="servicios">
       <div class="section-header">
         <div class="section-title-wrap">
-          <h2 class="section-heading">Aplicaciones Disponibles</h2>
-          <span class="apps-count" id="apps-count">{apps.length} aplicaciones activas</span>
+          <h2 class="section-heading">Catálogo de servicios</h2>
+          <span class="services-count">{serviceApps.length} servicios específicos</span>
         </div>
+        <p class="section-subtext">
+          Cada aplicación explica el tratamiento de datos conforme a sus funciones reales y su modelo operativo (en la nube o en el dispositivo).
+        </p>
       </div>
 
-      <div class="apps-grid" id="apps-grid">
-        {apps.map((app) => (
+      <div class="apps-grid">
+        {serviceApps.map((app) => (
           <AppCard
             slug={app.id}
             title={app.data.title}
@@ -59,47 +111,104 @@ const apps = allApps.sort((a, b) => a.data.title.localeCompare(b.data.title));
             category={app.data.category}
             lastUpdated={app.data.lastUpdated}
             platforms={app.data.platforms}
+            icon={app.data.icon}
             offlineOnly={app.data.offlineOnly}
             accountDeletion={app.data.accountDeletion}
           />
         ))}
       </div>
+    </section>
 
-      <!-- No results fallback -->
-      <div id="no-results" class="no-results" style="display: none;">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          <line x1="8" y1="11" x2="14" y2="11"></line>
-        </svg>
-        <h3>No se encontraron aplicaciones</h3>
-        <p>Intenta con otro término de búsqueda.</p>
+    <!-- 4. Sección “Cuenta y datos” -->
+    <section class="data-management-section" id="cuenta-y-datos">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <h2 class="section-heading">Cuenta y datos</h2>
+          <span class="services-count">Gestión y derechos ARCO</span>
+        </div>
+        <p class="section-subtext">
+          Selecciona la acción que necesitas ejercer sobre tu información personal. Todo trámite cuenta con un canal de atención formal y trazable.
+        </p>
+      </div>
+
+      <div class="actions-grid">
+        <!-- Entrada 1: Eliminar datos de un servicio -->
+        <div class="action-card">
+          <div class="action-icon-box action-icon-service">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+              <line x1="12" y1="22.08" x2="12" y2="12"></line>
+            </svg>
+          </div>
+          <h3 class="action-title">Eliminar datos de un servicio</h3>
+          <p class="action-desc">
+            Solicitar la eliminación de información de una aplicación concreta (como tareas o archivos de SARA, o inscripciones en SARA Eventos) sin cancelar tu acceso central.
+          </p>
+          <div class="action-detail">
+            <strong>Cómo tramitarlo:</strong> Envía un correo con el nombre del servicio y los datos específicos que deseas depurar a <a href="mailto:icilaboratories@gmail.com">icilaboratories@gmail.com</a>.
+          </div>
+        </div>
+
+        <!-- Entrada 2: Eliminar mi Cuenta SARA -->
+        <div class="action-card action-card-alert">
+          <div class="action-icon-box action-icon-account">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="8.5" cy="7" r="4"></circle>
+              <line x1="18" y1="8" x2="23" y2="13"></line>
+              <line x1="23" y1="8" x2="18" y2="13"></line>
+            </svg>
+          </div>
+          <h3 class="action-title">Eliminar mi Cuenta SARA</h3>
+          <p class="action-desc">
+            Suprime tu identidad en SARA ID y tus credenciales de inicio de sesión. <strong>Importante:</strong> Perderás de forma permanente el acceso unificado a todos los servicios conectados del laboratorio.
+          </p>
+          <div class="action-detail">
+            <strong>Consecuencias y proceso:</strong> Los registros que deban preservarse por mandato legal o normativo escolar se mantendrán según las reglas universitarias. Consulta el <a href="/sara-id/#eliminacion-de-cuenta">procedimiento en SARA ID</a>.
+          </div>
+        </div>
+
+        <!-- Entrada 3: Consultar o corregir información -->
+        <div class="action-card">
+          <div class="action-icon-box action-icon-access">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M12 16v-4"></path>
+              <path d="M12 8h.01"></path>
+            </svg>
+          </div>
+          <h3 class="action-title">Consultar o corregir información</h3>
+          <p class="action-desc">
+            Actualiza datos básicos de tu perfil desde el portal de autoservicio o solicita la rectificación formal de tu correo institucional mediante el canal de derechos ARCO.
+          </p>
+          <div class="action-detail">
+            <strong>Canal directo:</strong> Modifica tu perfil en el <a href="https://auth.ici-labs.com" target="_blank" rel="noopener noreferrer">Portal de cuenta</a> o escribe a <a href="mailto:icilaboratories@gmail.com">icilaboratories@gmail.com</a>.
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Institutional / About Section -->
-    <section class="about-section" id="laboratorio">
-      <div class="card about-card">
-        <div class="about-grid">
-          <div class="about-text">
-            <span class="badge" style="margin-bottom: 12px;">Sobre ICI Laboratories</span>
-            <h2 class="about-title">Compromiso con la privacidad</h2>
-            <p>
-              Somos un laboratorio tecnológico dedicado a la investigación y desarrollo de soluciones de software, sistemas educativos y aplicaciones de alta calidad técnica.
-            </p>
-            <p>
-              Garantizamos el cumplimiento riguroso de las directrices de privacidad de <strong>Google Play Store</strong>, <strong>Apple App Store</strong> y marcos normativos internacionales, ofreciendo mecanismos directos para el ejercicio de los derechos ARCO y eliminación de datos.
+    <!-- 5. Marco Institucional y de Cumplimiento -->
+    <section class="institutional-section">
+      <div class="inst-card">
+        <div class="inst-grid">
+          <div>
+            <span class="badge" style="margin-bottom: 12px;">ICI Laboratories</span>
+            <h3 class="inst-title">Gobernanza de datos y vinculación académica</h3>
+            <p class="inst-text">
+              Desarrollamos soluciones de software para la investigación científica y la educación superior. Aplicamos principios de privacidad desde el diseño, minimización de datos y seguridad criptográfica, cumpliendo con los estándares de Google Play Store, Apple App Store y el marco normativo de protección de datos personales.
             </p>
           </div>
 
-          <div class="collaborations-box">
-            <h3 class="collab-title">Colaboración Académica e Institucional</h3>
-            <p class="collab-desc">
-              Diversos proyectos de nuestro catálogo se desarrollan en estrecha vinculación con los Cuerpos Académicos <strong>UCOL-CA83</strong> y <strong>UCOL-CA91</strong> de la Universidad de Colima y con <strong>IDS Labs</strong>, impulsando iniciativas educativas de impacto social y formación tecnológica.
+          <div class="inst-collab-box">
+            <h4 class="inst-collab-title">Colaboración Institucional</h4>
+            <p class="inst-collab-desc">
+              Los proyectos del ecosistema SARA se desarrollan en vinculación académica con la <strong>Facultad de Ingeniería Electromecánica (FIME)</strong> de la <strong>Universidad de Colima</strong> e <strong>ICI Laboratories</strong>.
             </p>
-            <div class="collab-contact">
-              <span>¿Tienes preguntas sobre el manejo de tus datos?</span>
-              <a href="mailto:soporte@ici-labs.com" class="collab-email-link">soporte@ici-labs.com</a>
+            <div class="inst-collab-contact">
+              <span>Contacto de gobernanza y privacidad:</span>
+              <a href="mailto:icilaboratories@gmail.com" class="inst-email">icilaboratories@gmail.com</a>
             </div>
           </div>
         </div>
@@ -108,49 +217,14 @@ const apps = allApps.sort((a, b) => a.data.title.localeCompare(b.data.title));
   </div>
 </BaseLayout>
 
-<script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
-    const searchInput = document.getElementById('app-search');
-    const cards = Array.from(document.querySelectorAll('[data-app-card]'));
-    const countEl = document.getElementById('apps-count');
-    const noResults = document.getElementById('no-results');
-
-    if (searchInput) {
-      searchInput.addEventListener('input', (e) => {
-        const query = e.target.value.toLowerCase().trim();
-        let visibleCount = 0;
-
-        cards.forEach((card) => {
-          const title = card.getAttribute('data-title') || '';
-          const category = card.getAttribute('data-category') || '';
-          const desc = card.getAttribute('data-description') || '';
-
-          const matches = title.includes(query) || category.includes(query) || desc.includes(query);
-          if (matches) {
-            card.style.display = 'flex';
-            visibleCount++;
-          } else {
-            card.style.display = 'none';
-          }
-        });
-
-        if (countEl) {
-          countEl.textContent = `${visibleCount} ${visibleCount === 1 ? 'aplicación encontrada' : 'aplicaciones encontradas'}`;
-        }
-
-        if (noResults) {
-          noResults.style.display = visibleCount === 0 ? 'block' : 'none';
-        }
-      });
-    }
-  });
-</script>
-
 <style>
+  /* ─────────────────────────────────────────────────────────────
+     1. Presentación (Hero)
+     ───────────────────────────────────────────────────────────── */
   .hero-section {
     text-align: center;
-    max-width: 760px;
-    margin: 0 auto 60px auto;
+    max-width: 780px;
+    margin: 0 auto 52px auto;
   }
 
   .hero-badge {
@@ -159,80 +233,196 @@ const apps = allApps.sort((a, b) => a.data.title.localeCompare(b.data.title));
     gap: 8px;
     background: var(--surface);
     border: 1px solid var(--surface-border);
-    padding: 6px 14px;
+    padding: 6px 16px;
     border-radius: var(--radius-full);
     font-size: 0.8rem;
     font-weight: 600;
     color: var(--text-secondary);
-    margin-bottom: 24px;
+    margin-bottom: 22px;
     box-shadow: var(--shadow-sm);
   }
 
-  .pulse-dot {
+  .badge-dot {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: var(--accent);
-    box-shadow: 0 0 0 2px var(--accent-light);
+    background: var(--accent-cyan);
+    box-shadow: 0 0 0 2px rgba(21, 154, 179, 0.25);
   }
 
   .hero-title {
-    font-family: var(--font-serif);
-    font-size: clamp(2.4rem, 5vw, 3.5rem);
-    font-weight: 700;
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+    font-weight: 800;
     color: var(--text-primary);
-    line-height: 1.15;
-    margin-bottom: 20px;
-    letter-spacing: -0.02em;
+    line-height: 1.18;
+    margin-bottom: 16px;
+    letter-spacing: -0.025em;
   }
 
   .hero-subtitle {
     font-size: 1.125rem;
     color: var(--text-secondary);
-    line-height: 1.7;
-    margin-bottom: 36px;
-  }
-
-  .search-box {
-    max-width: 540px;
+    line-height: 1.65;
+    max-width: 680px;
     margin: 0 auto;
   }
 
-  .search-input-wrapper {
+  /* ─────────────────────────────────────────────────────────────
+     2. Tarjeta destacada: Cuenta SARA
+     ───────────────────────────────────────────────────────────── */
+  .core-account-section {
+    margin-bottom: 64px;
+  }
+
+  .core-card {
+    background: var(--surface);
+    border: 1.5px solid var(--accent-border);
+    border-radius: var(--radius-xl);
+    padding: 36px 32px;
+    box-shadow: var(--shadow-md);
     position: relative;
+    overflow: hidden;
+  }
+
+  .core-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--sara-sapphire-600) 0%, var(--sara-cyan-500) 50%, var(--sara-coral-500) 100%);
+  }
+
+  .core-header-badge {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .core-chip {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    background: var(--accent-light);
+    border: 1px solid var(--accent-border);
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+  }
+
+  .core-meta-updated {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .core-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+    letter-spacing: -0.015em;
+  }
+
+  .core-desc {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    max-width: 760px;
+    margin-bottom: 24px;
+  }
+
+  .core-features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 30px;
+  }
+
+  @media (min-width: 768px) {
+    .core-features {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .core-feature-item {
     display: flex;
     align-items: center;
+    gap: 10px;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    background: var(--bg-subtle);
+    padding: 12px 14px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--surface-border-subtle);
   }
 
-  .search-icon {
-    position: absolute;
-    left: 18px;
-    color: var(--text-muted);
-    pointer-events: none;
+  .core-feature-item svg {
+    color: var(--accent-cyan);
+    flex-shrink: 0;
   }
 
-  .search-input-wrapper input {
-    width: 100%;
-    padding: 16px 20px 16px 52px;
+  .core-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 11px 22px;
     border-radius: var(--radius-full);
-    border: 1px solid var(--surface-border);
-    background: var(--surface);
-    font-family: var(--font-sans);
-    font-size: 0.975rem;
-    color: var(--text-primary);
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 4px 12px var(--accent-glow);
     transition: all var(--transition);
   }
 
-  .search-input-wrapper input:focus {
-    outline: none;
-    border-color: var(--accent);
-    box-shadow: 0 0 0 4px var(--accent-light);
+  .btn-primary:hover {
+    background: var(--accent-hover);
+    color: #FFFFFF;
+    opacity: 1;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px var(--accent-glow);
   }
 
-  /* Apps Section */
-  .apps-section {
-    margin-bottom: 80px;
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--surface);
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 0.925rem;
+    padding: 10px 20px;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--surface-border);
+    transition: all var(--transition);
+  }
+
+  .btn-secondary:hover {
+    color: var(--text-primary);
+    border-color: var(--accent);
+    background: var(--bg-subtle);
+  }
+
+  /* ─────────────────────────────────────────────────────────────
+     3. Catálogo de Servicios
+     ───────────────────────────────────────────────────────────── */
+  .services-section {
+    margin-bottom: 72px;
   }
 
   .section-header {
@@ -245,23 +435,33 @@ const apps = allApps.sort((a, b) => a.data.title.localeCompare(b.data.title));
     align-items: baseline;
     border-bottom: 1px solid var(--surface-border);
     padding-bottom: 12px;
+    margin-bottom: 8px;
   }
 
   .section-heading {
-    font-family: var(--font-serif);
+    font-family: var(--font-display);
     font-size: 1.65rem;
+    font-weight: 700;
     color: var(--text-primary);
+    letter-spacing: -0.01em;
   }
 
-  .apps-count {
+  .services-count {
     font-size: 0.85rem;
     color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  .section-subtext {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
   }
 
   .apps-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 22px;
   }
 
   @media (min-width: 768px) {
@@ -270,86 +470,172 @@ const apps = allApps.sort((a, b) => a.data.title.localeCompare(b.data.title));
     }
   }
 
-  .no-results {
-    text-align: center;
-    padding: 60px 20px;
-    color: var(--text-muted);
+  /* ─────────────────────────────────────────────────────────────
+     4. Sección Cuenta y Datos
+     ───────────────────────────────────────────────────────────── */
+  .data-management-section {
+    margin-bottom: 72px;
   }
 
-  .no-results svg {
-    margin: 0 auto 16px auto;
-    stroke: var(--text-muted);
+  .actions-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
   }
 
-  .no-results h3 {
-    font-size: 1.25rem;
+  @media (min-width: 900px) {
+    .actions-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .action-card {
+    background: var(--surface);
+    border: 1px solid var(--surface-border);
+    border-radius: var(--radius-lg);
+    padding: 26px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition), border-color var(--transition);
+  }
+
+  .action-card:hover {
+    border-color: var(--accent-border);
+    transform: translateY(-2px);
+  }
+
+  .action-card-alert {
+    border-color: rgba(230, 86, 66, 0.25);
+  }
+
+  .action-icon-box {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .action-icon-service {
+    background: var(--accent-light);
+    color: var(--accent);
+  }
+
+  .action-icon-account {
+    background: rgba(230, 86, 66, 0.12);
+    color: var(--accent-coral);
+  }
+
+  .action-icon-access {
+    background: rgba(21, 154, 179, 0.12);
+    color: var(--accent-cyan);
+  }
+
+  .action-title {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: 6px;
+    margin-bottom: 10px;
+    line-height: 1.3;
   }
 
-  /* About Section */
-  .about-section {
-    margin-bottom: 40px;
+  .action-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.55;
+    margin-bottom: 18px;
+    flex-grow: 1;
   }
 
-  .about-grid {
+  .action-detail {
+    font-size: 0.825rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--surface-border-subtle);
+    padding-top: 14px;
+    line-height: 1.5;
+  }
+
+  .action-detail a {
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  /* ─────────────────────────────────────────────────────────────
+     5. Marco Institucional
+     ───────────────────────────────────────────────────────────── */
+  .institutional-section {
+    margin-bottom: 48px;
+  }
+
+  .inst-card {
+    background: var(--surface);
+    border: 1px solid var(--surface-border);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+  }
+
+  .inst-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 32px;
   }
 
-  @media (min-width: 840px) {
-    .about-grid {
+  @media (min-width: 860px) {
+    .inst-grid {
       grid-template-columns: 1.2fr 1fr;
     }
   }
 
-  .about-title {
-    font-family: var(--font-serif);
-    font-size: 1.75rem;
-    margin-bottom: 16px;
-    color: var(--text-primary);
-  }
-
-  .about-text p {
-    font-size: 0.95rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
-    margin-bottom: 16px;
-  }
-
-  .collaborations-box {
-    background: var(--bg-subtle);
-    border: 1px solid var(--surface-border);
-    border-radius: var(--radius-md);
-    padding: 24px;
-  }
-
-  .collab-title {
-    font-size: 1.05rem;
+  .inst-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
 
-  .collab-desc {
-    font-size: 0.875rem;
+  .inst-text {
+    font-size: 0.925rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+
+  .inst-collab-box {
+    background: var(--bg-subtle);
+    border: 1px solid var(--surface-border-subtle);
+    border-radius: var(--radius-md);
+    padding: 22px;
+  }
+
+  .inst-collab-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+
+  .inst-collab-desc {
+    font-size: 0.85rem;
     color: var(--text-secondary);
     line-height: 1.6;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
   }
 
-  .collab-contact {
+  .inst-collab-contact {
     display: flex;
     flex-direction: column;
     gap: 4px;
-    font-size: 0.85rem;
+    font-size: 0.825rem;
     color: var(--text-muted);
     border-top: 1px solid var(--surface-border-subtle);
-    padding-top: 14px;
+    padding-top: 12px;
   }
 
-  .collab-email-link {
+  .inst-email {
     font-weight: 600;
     color: var(--accent);
   }

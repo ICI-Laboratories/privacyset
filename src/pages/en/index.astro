@@ -1,0 +1,629 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AppCard from '../../components/AppCard.astro';
+
+const allApps = await getCollection('appsEn');
+
+// SARA ID core account
+const coreApp = allApps.find(app => app.data.isCoreAccount || app.id === 'sara-id');
+
+// Service apps sorted by order
+const serviceApps = allApps
+  .filter(app => app.id !== 'sara-id' && !app.data.isCoreAccount)
+  .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
+---
+
+<BaseLayout
+  title="Privacy Center · ICI Laboratories"
+  description="Learn how ICI Laboratories services handle your personal data and how to manage your SARA Account and privacy requests."
+  lang="en"
+>
+  <div class="container">
+    <!-- 1. Hero / Presentation -->
+    <section class="hero-section">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span>Privacy Center &middot; ICI Laboratories</span>
+      </div>
+      <h1 class="hero-title">Your information, clearly explained.</h1>
+      <p class="hero-subtitle">
+        Learn how ICI Laboratories services handle your personal data and how to manage your SARA Account and privacy requests.
+      </p>
+    </section>
+
+    <!-- 2. Highlighted Card: SARA Account -->
+    <section class="core-account-section" aria-label="SARA Account and Core Identity Service">
+      <div class="core-card">
+        <div class="core-card-body">
+          <div class="core-header-badge">
+            <span class="core-chip">Core Identity</span>
+            <span class="core-meta-updated">Updated: {coreApp?.data.lastUpdated ?? "October 28, 2026"}</span>
+          </div>
+
+          <h2 class="core-title">Do you use your SARA Account to sign in?</h2>
+          <p class="core-desc">
+            <strong>SARA ID</strong> manages your account and unified access across connected applications. Each application explains separately how it processes data for its own specialized features.
+          </p>
+
+          <div class="core-features">
+            <div class="core-feature-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+              <span>Cryptographic salted key derivation for credentials</span>
+            </div>
+            <div class="core-feature-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 8v4l3 3"></path>
+              </svg>
+              <span>Active session tracking and remote logout</span>
+            </div>
+            <div class="core-feature-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <span>Server-side transactional email verification</span>
+            </div>
+          </div>
+
+          <div class="core-actions">
+            <a href="/en/sara-id/" class="btn-primary">
+              <span>View SARA ID Privacy Policy</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+
+            <a href="https://auth.ici-labs.com" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+              <span>Manage my account</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Services Directory -->
+    <section class="services-section" id="services">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <h2 class="section-heading">Services Directory</h2>
+          <span class="services-count">{serviceApps.length} specific services</span>
+        </div>
+        <p class="section-subtext">
+          Each application details its data governance based on active operational features and execution model (cloud-connected or strictly on-device).
+        </p>
+      </div>
+
+      <div class="apps-grid">
+        {serviceApps.map((app) => (
+          <AppCard
+            slug={app.id}
+            title={app.data.title}
+            shortDescription={app.data.shortDescription}
+            category={app.data.category}
+            lastUpdated={app.data.lastUpdated}
+            platforms={app.data.platforms}
+            icon={app.data.icon}
+            lang="en"
+            offlineOnly={app.data.offlineOnly}
+            accountDeletion={app.data.accountDeletion}
+          />
+        ))}
+      </div>
+    </section>
+
+    <!-- 4. Account & Data Section -->
+    <section class="data-management-section" id="account-and-data">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <h2 class="section-heading">Account & Data</h2>
+          <span class="services-count">Data Rights & ARCO</span>
+        </div>
+        <p class="section-subtext">
+          Select the specific procedure you need to exercise regarding your personal data. All requests follow a verifiable and direct channel.
+        </p>
+      </div>
+
+      <div class="actions-grid">
+        <!-- Entry 1: Delete data from a service -->
+        <div class="action-card">
+          <div class="action-icon-box action-icon-service">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+              <line x1="12" y1="22.08" x2="12" y2="12"></line>
+            </svg>
+          </div>
+          <h3 class="action-title">Delete data from a service</h3>
+          <p class="action-desc">
+            Request the removal of data from an individual application (such as assignments in SARA, or registrations in SARA Eventos) without terminating your central SARA Account.
+          </p>
+          <div class="action-detail">
+            <strong>How to request:</strong> Send an email specifying the application and data to be purged to <a href="mailto:icilaboratories@gmail.com">icilaboratories@gmail.com</a>.
+          </div>
+        </div>
+
+        <!-- Entry 2: Delete my SARA Account -->
+        <div class="action-card action-card-alert">
+          <div class="action-icon-box action-icon-account">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="8.5" cy="7" r="4"></circle>
+              <line x1="18" y1="8" x2="23" y2="13"></line>
+              <line x1="23" y1="8" x2="18" y2="13"></line>
+            </svg>
+          </div>
+          <h3 class="action-title">Delete my SARA Account</h3>
+          <p class="action-desc">
+            Permanently purges your central identity in SARA ID and your login credentials. <strong>Consequence:</strong> You will permanently lose unified access to all connected laboratory services.
+          </p>
+          <div class="action-detail">
+            <strong>Consequences and procedure:</strong> Records legally required for academic transcripts remain subject to university policy. See the <a href="/en/sara-id/#eliminacion-de-cuenta">procedure in SARA ID</a>.
+          </div>
+        </div>
+
+        <!-- Entry 3: Access or correct information -->
+        <div class="action-card">
+          <div class="action-icon-box action-icon-access">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M12 16v-4"></path>
+              <path d="M12 8h.01"></path>
+            </svg>
+          </div>
+          <h3 class="action-title">Access or correct information</h3>
+          <p class="action-desc">
+            Update basic profile details directly via the self-service portal or submit a formal rectification request regarding your institutional email address.
+          </p>
+          <div class="action-detail">
+            <strong>Direct management:</strong> Update your profile in the <a href="https://auth.ici-labs.com" target="_blank" rel="noopener noreferrer">Account Portal</a> or write to <a href="mailto:icilaboratories@gmail.com">icilaboratories@gmail.com</a>.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Institutional Framework -->
+    <section class="institutional-section">
+      <div class="inst-card">
+        <div class="inst-grid">
+          <div>
+            <span class="badge" style="margin-bottom: 12px;">ICI Laboratories</span>
+            <h3 class="inst-title">Data governance and academic collaboration</h3>
+            <p class="inst-text">
+              We engineer software solutions for scientific research and higher education. We enforce privacy-by-design, data minimization, and modern cryptographic protection, complying with Google Play Store, Apple App Store, and international privacy guidelines.
+            </p>
+          </div>
+
+          <div class="inst-collab-box">
+            <h4 class="inst-collab-title">Academic Cooperation</h4>
+            <p class="inst-collab-desc">
+              Projects within the SARA ecosystem are developed in academic cooperation with the <strong>School of Electromechanical Engineering (FIME)</strong> of the <strong>University of Colima</strong> and <strong>ICI Laboratories</strong>.
+            </p>
+            <div class="inst-collab-contact">
+              <span>Governance & privacy contact:</span>
+              <a href="mailto:icilaboratories@gmail.com" class="inst-email">icilaboratories@gmail.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .hero-section {
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto 52px auto;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--surface);
+    border: 1px solid var(--surface-border);
+    padding: 6px 16px;
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 22px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent-cyan);
+    box-shadow: 0 0 0 2px rgba(21, 154, 179, 0.25);
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.18;
+    margin-bottom: 16px;
+    letter-spacing: -0.025em;
+  }
+
+  .hero-subtitle {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .core-account-section {
+    margin-bottom: 64px;
+  }
+
+  .core-card {
+    background: var(--surface);
+    border: 1.5px solid var(--accent-border);
+    border-radius: var(--radius-xl);
+    padding: 36px 32px;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .core-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--sara-sapphire-600) 0%, var(--sara-cyan-500) 50%, var(--sara-coral-500) 100%);
+  }
+
+  .core-header-badge {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .core-chip {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    background: var(--accent-light);
+    border: 1px solid var(--accent-border);
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+  }
+
+  .core-meta-updated {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .core-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+    letter-spacing: -0.015em;
+  }
+
+  .core-desc {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    max-width: 760px;
+    margin-bottom: 24px;
+  }
+
+  .core-features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 30px;
+  }
+
+  @media (min-width: 768px) {
+    .core-features {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .core-feature-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    background: var(--bg-subtle);
+    padding: 12px 14px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--surface-border-subtle);
+  }
+
+  .core-feature-item svg {
+    color: var(--accent-cyan);
+    flex-shrink: 0;
+  }
+
+  .core-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 11px 22px;
+    border-radius: var(--radius-full);
+    box-shadow: 0 4px 12px var(--accent-glow);
+    transition: all var(--transition);
+  }
+
+  .btn-primary:hover {
+    background: var(--accent-hover);
+    color: #FFFFFF;
+    opacity: 1;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px var(--accent-glow);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--surface);
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 0.925rem;
+    padding: 10px 20px;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--surface-border);
+    transition: all var(--transition);
+  }
+
+  .btn-secondary:hover {
+    color: var(--text-primary);
+    border-color: var(--accent);
+    background: var(--bg-subtle);
+  }
+
+  .services-section {
+    margin-bottom: 72px;
+  }
+
+  .section-header {
+    margin-bottom: 28px;
+  }
+
+  .section-title-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid var(--surface-border);
+    padding-bottom: 12px;
+    margin-bottom: 8px;
+  }
+
+  .section-heading {
+    font-family: var(--font-display);
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+  }
+
+  .services-count {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  .section-subtext {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .apps-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  @media (min-width: 768px) {
+    .apps-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .data-management-section {
+    margin-bottom: 72px;
+  }
+
+  .actions-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  @media (min-width: 900px) {
+    .actions-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .action-card {
+    background: var(--surface);
+    border: 1px solid var(--surface-border);
+    border-radius: var(--radius-lg);
+    padding: 26px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition), border-color var(--transition);
+  }
+
+  .action-card:hover {
+    border-color: var(--accent-border);
+    transform: translateY(-2px);
+  }
+
+  .action-card-alert {
+    border-color: rgba(230, 86, 66, 0.25);
+  }
+
+  .action-icon-box {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .action-icon-service {
+    background: var(--accent-light);
+    color: var(--accent);
+  }
+
+  .action-icon-account {
+    background: rgba(230, 86, 66, 0.12);
+    color: var(--accent-coral);
+  }
+
+  .action-icon-access {
+    background: rgba(21, 154, 179, 0.12);
+    color: var(--accent-cyan);
+  }
+
+  .action-title {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .action-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.55;
+    margin-bottom: 18px;
+    flex-grow: 1;
+  }
+
+  .action-detail {
+    font-size: 0.825rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--surface-border-subtle);
+    padding-top: 14px;
+    line-height: 1.5;
+  }
+
+  .action-detail a {
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .institutional-section {
+    margin-bottom: 48px;
+  }
+
+  .inst-card {
+    background: var(--surface);
+    border: 1px solid var(--surface-border);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+  }
+
+  .inst-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  @media (min-width: 860px) {
+    .inst-grid {
+      grid-template-columns: 1.2fr 1fr;
+    }
+  }
+
+  .inst-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+  }
+
+  .inst-text {
+    font-size: 0.925rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+
+  .inst-collab-box {
+    background: var(--bg-subtle);
+    border: 1px solid var(--surface-border-subtle);
+    border-radius: var(--radius-md);
+    padding: 22px;
+  }
+
+  .inst-collab-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+
+  .inst-collab-desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .inst-collab-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.825rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--surface-border-subtle);
+    padding-top: 12px;
+  }
+
+  .inst-email {
+    font-weight: 600;
+    color: var(--accent);
+  }
+</style>

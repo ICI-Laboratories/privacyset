@@ -1,52 +1,65 @@
-# Portal de Políticas de Privacidad - ICI Laboratories
+# Centro de Privacidad — ICI Laboratories
 
-Portal web oficial y generador estático de políticas de privacidad para las aplicaciones móviles y servicios tecnológicos desarrollados por **ICI Laboratories**.
+Portal web oficial y generador estático del **Centro de Privacidad de ICI Laboratories** para las aplicaciones, servicios de identidad y plataformas del ecosistema **SARA**.
 
 - **Dominio de producción:** [https://privacy.ici-labs.com](https://privacy.ici-labs.com)
-- **Stack tecnológico:** [Astro](https://astro.build/) (Static Site Generation - SSG), TypeScript, Content Collections (Markdown).
+- **Repositorio canónico:** `privacyset`
+- **Stack tecnológico:** [Astro 5](https://astro.build/) (Static Site Generation - SSG), TypeScript, Content Collections.
+- **Sistema de diseño:** [ICI Brand Assets](../ici-brand-assets/) (SARA v0.5.0 · Prisma Cognitivo & Glass OS).
 
 ---
 
-## 📱 URLs para Google Play Store y Apple App Store
+## 🏛️ Catálogo de Políticas Publicadas
 
-Ambas tiendas exigen URLs públicas, directas y específicas por aplicación, así como un enlace para la eliminación de cuenta y datos personales.
+Cada servicio cuenta con una política específica e independiente, accesible en su propia ruta permanente:
 
-| Aplicación | URL de Política de Privacidad | URL de Eliminación de Cuenta |
-| :--- | :--- | :--- |
-| **SARA** | `https://privacy.ici-labs.com/sara/` | `https://privacy.ici-labs.com/sara/#eliminacion-de-cuenta` |
-| **InSituLab** | `https://privacy.ici-labs.com/insitulab/` | *N/A (Modelo Offline-first, sin nube)* |
+| Documento | Alcance y funciones | Ruta canónica | Procedimiento de baja / ARCO |
+| :--- | :--- | :--- | :--- |
+| **SARA ID — Cuenta SARA** | Servicio de identidad central, credenciales criptográficas, sesiones unificadas, acceso con Google, envío transaccional de correo (*ICI Identity Mail Backend*), aplicaciones conectadas y revocación. | [`/sara-id/`](https://privacy.ici-labs.com/sara-id/) | [`/sara-id/#eliminacion-de-cuenta`](https://privacy.ici-labs.com/sara-id/#eliminacion-de-cuenta) |
+| **SARA — Plataforma educativa** | Asignaturas, tareas multimedia, evaluaciones formativas, retroalimentación pedagógica, SARA Drive, DocMD y asistencia de IA (sin entrenamiento de modelos públicos). | [`/sara/`](https://privacy.ici-labs.com/sara/) | [`/sara/#eliminacion-de-cuenta`](https://privacy.ici-labs.com/sara/#eliminacion-de-cuenta) |
+| **SARA Eventos** | Gestión de agendas, simposios y semanas académicas (ej. *TecnoFIME*), inscripciones, listas de espera, control de aforos, datos compartidos con comités organizadores y folios de constancias. | [`/sara-eventos/`](https://privacy.ici-labs.com/sara-eventos/) | [`/sara-eventos/#eliminacion-de-cuenta`](https://privacy.ici-labs.com/sara-eventos/#eliminacion-de-cuenta) |
+| **SARA MD** | Editor Markdown para Android y iOS con fórmulas LaTeX y diagramas Mermaid. Modelo 100% *local-first* sin sincronización en la nube ni telemetría. | [`/sara-md/`](https://privacy.ici-labs.com/sara-md/) | *N/A (Datos destruidos al desinstalar la app)* |
+| **InSituLab** | Registro y geoetiquetado bajo demanda para visitas escolares de campo. Modelo *offline-first* en vinculación académica con la Universidad de Colima (FIME). | [`/insitulab/`](https://privacy.ici-labs.com/insitulab/) | *N/A (Almacenamiento local exclusivo en el dispositivo)* |
 
 ---
 
-## 🚀 Cómo agregar una nueva aplicación al laboratorio
+## 🔑 Referencia Oficial para Google (OAuth & Gmail API)
 
-Para agregar la política de una nueva app, **no necesitas modificar componentes ni programar**. Solo crea un archivo Markdown en `src/content/apps/` con el slug deseado (ej. `mi-nueva-app.md`):
+Para la verificación y pantallas de consentimiento de Google Cloud Platform y Google Identity:
 
-```markdown
----
-title: "Mi Nueva App"
-shortDescription: "Descripción breve de una o dos líneas sobre la app."
-category: "Productividad" # o Educación, Salud, etc.
-lastUpdated: "17 de septiembre de 2026"
-platforms: ["Android", "iOS"]
-developer: "ICI Laboratories"
-collaboration: "Opcional: mención de cuerpos académicos o aliados"
-contactEmail: "soporte@ici-labs.com"
-accountDeletion:
-  supported: true
-  email: "icilaboratories@gmail.com"
-  subject: "Solicitud de eliminación de cuenta - Mi Nueva App"
-  processingDays: 15
-offlineOnly: false
+1. **Pantalla de consentimiento de SARA ID (Google Sign-In):**
+   - **URL de la Política de Privacidad:** `https://privacy.ici-labs.com/sara-id/`
+   - **Nombre de la aplicación visible:** **SARA ID** (o **Cuenta SARA**).
+   - **Scopes solicitados a usuarios:** `openid`, `email`, `profile`.
+   - **Finalidad:** Autenticación directa y verificación de titularidad del correo. No se solicita acceso a buzones personales de los usuarios.
+
+2. **ICI Identity Mail Backend (`gmail.send`):**
+   - El envío de correos de verificación y recuperación de cuenta se realiza exclusivamente desde el buzón operativo oficial `icilaboratories@gmail.com`.
+   - Si el nombre técnico **“ICI Identity Mail Backend”** continúa apareciendo en registros de auditoría o pantallas administrativas de Google Cloud, queda expresamente cubierto y explicado en la sección **04 de la política de SARA ID**.
+   - Los usuarios finales **no** otorgan permisos sobre sus cuentas personales de Gmail.
+
 ---
 
-Texto legal de la política en formato Markdown estándar con títulos (#, ##), listas y párrafos.
-```
+## 📖 Estructura de Dos Niveles de Lectura
 
-Al hacer `git push`, el sistema compilará y generará automáticamente:
-1. Su tarjeta en el catálogo de inicio con buscador (`/`).
-2. Su página dedicada en `https://privacy.ici-labs.com/mi-nueva-app/`.
-3. Tabla de contenidos automática y botones para Play Store y PDF.
+Cada página de política implementa dos niveles de lectura para asegurar máxima transparencia:
+
+1. **Nivel 1 &middot; Resumen inicial:** Bloque destacado superior con 4 puntos clave:
+   - *1. Qué es este servicio*
+   - *2. Qué datos utiliza*
+   - *3. Para qué se utilizan*
+   - *4. Cómo contactar o gestionar*
+2. **Nivel 2 &middot; Documento completo:** Articulado en secciones numeradas con índice lateral interactivo (*sticky*) en computadoras y menú desplegable accesible en dispositivos móviles.
+
+---
+
+## 🎨 Sistema de Diseño (ICI Brand Assets)
+
+El portal implementa los design tokens canónicos de **SARA v0.5.0**:
+- **Tipografías:** `Manrope` (titulares y display), `Inter` (cuerpo y controles UI) y `JetBrains Mono` (claves, códigos y parámetros técnicos).
+- **Paleta Prisma:** Azul Zafiro ingeniería (`#1A367A` en claro / `#5882E6` en oscuro), Acento Cian Eléctrico (`#159AB3` / `#26C4CE`) y Coral Magma (`#E65642` / `#FF7659`).
+- **Superficies Glass OS:** Barra superior y tarjetas con bisel especular de 1 px (`--sara-rim-specular`), caústicas ambientales suaves en fondo y paneles de lectura opacos de alto contraste (WCAG AAA).
+- **Modo Claro / Oscuro:** Selector persistente en `localStorage` con detección automática de preferencia del sistema.
 
 ---
 
@@ -59,7 +72,7 @@ npm install
 # Iniciar servidor de desarrollo local
 npm run dev
 
-# Compilar para producción
+# Compilar para producción (SSG)
 npm run build
 
 # Previsualizar la compilación de producción localmente
@@ -68,9 +81,6 @@ npm run preview
 
 ---
 
-## 🚢 Despliegue Continuo (GitHub Pages)
+## 🚢 Despliegue
 
-El repositorio incluye un workflow en `.github/workflows/deploy.yml`. Al hacer push a la rama `main`:
-1. GitHub Actions compila el sitio mediante Astro.
-2. Despliega el directorio `dist/` a GitHub Pages.
-3. El archivo `public/CNAME` preserva de forma transparente el dominio `privacy.ici-labs.com`.
+El proyecto se compila a archivos HTML estáticos en `dist/` y se sirve bajo el dominio `privacy.ici-labs.com` (configurado en `public/CNAME`).

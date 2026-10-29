@@ -7,24 +7,26 @@ interface Props {
   title?: string;
   description?: string;
   currentSlug?: string;
+  lang?: 'es' | 'en';
 }
 
 const {
-  title = "Políticas de Privacidad - ICI Laboratories",
-  description = "Portal oficial de políticas de privacidad para las aplicaciones móviles y servicios tecnológicos de ICI Laboratories.",
+  title = "Centro de privacidad · ICI Laboratories",
+  description = "Consulta cómo los servicios de ICI Laboratories utilizan tus datos y cómo gestionar tu Cuenta SARA y tus solicitudes de privacidad.",
   currentSlug,
+  lang = 'es',
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://privacy.ici-labs.com");
 ---
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang={lang}>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#f8f7f4">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="theme-color" content="#F4F6FB">
+  <link rel="icon" type="image/svg+xml" href="/brand/logos/prisma/sara_isotipo_prisma_claro.svg">
   <link rel="canonical" href={canonicalURL}>
 
   <!-- Primary Meta Tags -->
@@ -37,7 +39,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://privacy.
   <meta property="og:url" content={canonicalURL}>
   <meta property="og:title" content={title}>
   <meta property="og:description" content={description}>
-  <meta property="og:site_name" content="ICI Laboratories">
+  <meta property="og:site_name" content={lang === 'en' ? "Privacy Center - ICI Laboratories" : "Centro de Privacidad - ICI Laboratories"}>
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary">
@@ -46,22 +48,24 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://privacy.
   <meta property="twitter:description" content={description}>
 </head>
 <body>
-  <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+  <a class="skip-link" href="#contenido">
+    {lang === 'en' ? "Skip to main content" : "Saltar al contenido principal"}
+  </a>
 
-  <Header currentSlug={currentSlug} />
+  <Header currentSlug={currentSlug} lang={lang} />
 
   <main id="contenido" class="main-content">
     <slot />
   </main>
 
-  <Footer />
+  <Footer lang={lang} />
 </body>
 </html>
 
 <style>
   .main-content {
     flex: 1;
-    padding-top: 40px;
-    padding-bottom: 80px;
+    padding-top: 36px;
+    padding-bottom: 72px;
   }
 </style>

@@ -3,57 +3,200 @@ import ThemeToggle from './ThemeToggle.astro';
 
 interface Props {
   currentSlug?: string;
+  lang?: 'es' | 'en';
 }
 
-const { currentSlug } = Astro.props;
+const { currentSlug, lang = 'es' } = Astro.props;
+const isEn = lang === 'en';
+
+const homeHref = isEn ? '/en/' : '/';
+const switchLangHref = isEn
+  ? (currentSlug ? `/${currentSlug}/` : '/')
+  : (currentSlug ? `/en/${currentSlug}/` : '/en/');
 ---
 
 <header class="topbar">
   <div class="container topbar-content">
-    <a href="/" class="brand-link" aria-label="ICI Laboratories - Portal de Privacidad">
-      <div class="brand-icon" aria-hidden="true">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-        </svg>
+    <a href={homeHref} class="brand-link" aria-label={isEn ? "ICI Laboratories Privacy Center" : "Centro de privacidad de ICI Laboratories"}>
+      <div class="brand-logo-box" aria-hidden="true">
+        <img
+          src="/brand/logos/prisma/sara_isotipo_prisma_claro.svg"
+          alt=""
+          width="26"
+          height="26"
+          class="logo-img logo-light"
+        />
+        <img
+          src="/brand/logos/prisma/sara_isotipo_prisma_oscuro.svg"
+          alt=""
+          width="26"
+          height="26"
+          class="logo-img logo-dark"
+        />
       </div>
-      <span class="brand-title">ICI Laboratories</span>
-      <span class="brand-badge">Privacidad</span>
+      <div class="brand-title-wrap">
+        <span class="brand-title">{isEn ? "Privacy Center" : "Centro de privacidad"}</span>
+        <span class="brand-subline">ICI Laboratories</span>
+      </div>
     </a>
 
+    <nav class="nav-links" aria-label={isEn ? "Main navigation" : "Navegación principal"}>
+      <a href={isEn ? "/en/#services" : "/#servicios"} class="nav-item-link">
+        {isEn ? "Services" : "Servicios"}
+      </a>
+      <a href={isEn ? "/en/#account-and-data" : "/#cuenta-y-datos"} class="nav-item-link">
+        {isEn ? "Account & Data" : "Cuenta y datos"}
+      </a>
+      <a href={isEn ? "/en/#contact" : "/#contacto"} class="nav-item-link">
+        {isEn ? "Contact" : "Contacto"}
+      </a>
+    </nav>
+
     <div class="topbar-actions">
+      <!-- Language Selector Pill -->
+      <div class="lang-switch-box" role="group" aria-label="Idioma / Language">
+        <a
+          href={isEn ? switchLangHref : undefined}
+          class={`lang-btn ${!isEn ? 'lang-btn-active' : ''}`}
+          aria-current={!isEn ? 'page' : undefined}
+          title="Versión en Español"
+        >
+          ES
+        </a>
+        <span class="lang-separator">/</span>
+        <a
+          href={!isEn ? switchLangHref : undefined}
+          class={`lang-btn ${isEn ? 'lang-btn-active' : ''}`}
+          aria-current={isEn ? 'page' : undefined}
+          title="English version"
+        >
+          EN
+        </a>
+      </div>
+
       {currentSlug && (
-        <a href="/" class="nav-back-link">
+        <a href={homeHref} class="nav-back-link" title={isEn ? "Back to Privacy Center home" : "Volver al inicio del Centro de Privacidad"}>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="15 18 9 12 15 6"></polyline>
           </svg>
-          <span>Todas las apps</span>
+          <span>{isEn ? "Home" : "Inicio"}</span>
         </a>
       )}
+
       <ThemeToggle />
     </div>
   </div>
 </header>
 
 <style>
+  .brand-logo-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+  }
+
+  .logo-img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+  }
+
+  :global([data-theme="dark"]) .logo-light {
+    display: none;
+  }
+  :global([data-theme="dark"]) .logo-dark {
+    display: block;
+  }
+  :global(:root:not([data-theme="dark"])) .logo-light {
+    display: block;
+  }
+  :global(:root:not([data-theme="dark"])) .logo-dark {
+    display: none;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .nav-item-link {
+    font-size: 0.885rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: color var(--transition);
+  }
+
+  .nav-item-link:hover {
+    color: var(--accent);
+  }
+
+  .topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  /* Language Switcher */
+  .lang-switch-box {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--surface);
+    border: 1px solid var(--surface-border);
+    padding: 3px 8px;
+    border-radius: var(--radius-full);
+    font-size: 0.775rem;
+    font-weight: 700;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .lang-btn {
+    color: var(--text-muted);
+    padding: 2px 4px;
+    border-radius: 4px;
+    transition: all var(--transition);
+  }
+
+  .lang-btn:hover {
+    color: var(--accent);
+  }
+
+  .lang-btn-active {
+    color: var(--accent) !important;
+    font-weight: 800;
+    pointer-events: none;
+  }
+
+  .lang-separator {
+    color: var(--surface-border);
+    font-size: 0.7rem;
+    user-select: none;
+  }
+
   .nav-back-link {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-size: 0.875rem;
+    font-size: 0.85rem;
     font-weight: 500;
     color: var(--text-secondary);
     padding: 6px 12px;
     border-radius: var(--radius-full);
+    border: 1px solid var(--surface-border-subtle);
+    background: var(--surface);
     transition: all var(--transition);
   }
 
   .nav-back-link:hover {
     color: var(--accent);
-    background: var(--bg-subtle);
+    border-color: var(--accent-border);
   }
 
-  @media (max-width: 640px) {
-    .nav-back-link span {
+  @media (max-width: 760px) {
+    .nav-links {
       display: none;
     }
   }

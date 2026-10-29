@@ -2,15 +2,82 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Página no encontrada | ICI Laboratories">
-  <div class="container text-center" style="text-align: center; padding: 60px 20px;">
-    <span class="badge" style="margin-bottom: 16px;">Error 404</span>
-    <h1 style="font-family: var(--font-serif); font-size: 3rem; margin-bottom: 16px;">Política no encontrada</h1>
-    <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto 30px auto;">
-      La política de privacidad que estás buscando no existe o ha sido reubicada.
-    </p>
-    <a href="/" class="btn" style="display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: white; padding: 10px 24px; border-radius: var(--radius-full); font-weight: 600;">
-      Volver al catálogo de aplicaciones
-    </a>
+<BaseLayout title="Página no encontrada · Centro de Privacidad">
+  <div class="container not-found-wrap">
+    <div class="not-found-card">
+      <span class="badge" style="margin-bottom: 16px;">Error 404</span>
+      <h1 class="not-found-title">Documento no encontrado</h1>
+      <p class="not-found-desc">
+        La política o página que estás buscando no existe en el Centro de Privacidad o ha sido actualizada a una nueva dirección canónica.
+      </p>
+      <div class="not-found-actions">
+        <a href="/" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+          <span>Volver al inicio del Centro de Privacidad</span>
+        </a>
+      </div>
+    </div>
   </div>
 </BaseLayout>
+
+<style>
+  .not-found-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    padding: 40px 20px;
+  }
+
+  .not-found-card {
+    background: var(--surface);
+    border: 1px solid var(--surface-border);
+    border-radius: var(--radius-xl);
+    padding: 48px 32px;
+    text-align: center;
+    max-width: 580px;
+    box-shadow: var(--shadow-md);
+  }
+
+  .not-found-title {
+    font-family: var(--font-display);
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 14px;
+    letter-spacing: -0.02em;
+  }
+
+  .not-found-desc {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 28px;
+    font-size: 1rem;
+  }
+
+  .not-found-actions {
+    display: flex;
+    justify-content: center;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 11px 22px;
+    border-radius: var(--radius-full);
+    transition: all var(--transition);
+  }
+
+  .btn-primary:hover {
+    background: var(--accent-hover);
+    color: #FFFFFF;
+    transform: translateY(-1px);
+  }
+</style>

@@ -1,46 +1,160 @@
 ---
 // Footer.astro
+interface Props {
+  lang?: 'es' | 'en';
+}
+
+const { lang = 'es' } = Astro.props;
+const isEn = lang === 'en';
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="footer">
+<footer class="footer" id={isEn ? "contact" : "contacto"}>
   <div class="container footer-content">
     <div class="footer-brand">
-      <p class="footer-title"><strong>ICI Laboratories</strong></p>
-      <p class="footer-desc">Desarrollo de soluciones tecnológicas y aplicaciones móviles científicas y operativas.</p>
+      <p class="footer-title">{isEn ? "Privacy Center · ICI Laboratories" : "Centro de privacidad · ICI Laboratories"}</p>
+      <p class="footer-desc">
+        {isEn
+          ? "Official repository of privacy policies for the SARA ecosystem and applied engineering projects by ICI Laboratories, developed in academic cooperation with the University of Colima and the School of Electromechanical Engineering (FIME)."
+          : "Repositorio central y normativo de políticas de privacidad para el ecosistema SARA y los proyectos de investigación aplicada y desarrollo tecnológico de ICI Laboratories, en vinculación académica con la Universidad de Colima y la Facultad de Ingeniería Electromecánica (FIME)."}
+      </p>
+      <div class="footer-team">
+        <span>{isEn ? "Data Governance & Privacy Desk" : "Equipo responsable de privacidad y gobernanza de datos"}</span> &middot;
+        <span>{isEn ? "Portal Version:" : "Versión del portal:"} <strong>v2.1.0 (2026)</strong></span>
+      </div>
     </div>
 
-    <div class="footer-links">
-      <a href="https://ici-labs.com" target="_blank" rel="noopener noreferrer">Sitio Web Oficial</a>
-      <span class="footer-dot">&middot;</span>
-      <a href="mailto:soporte@ici-labs.com">Contacto de Soporte</a>
-      <span class="footer-dot">&middot;</span>
-      <span>&copy; {currentYear} ICI Laboratories</span>
+    <div class="footer-sections">
+      <div class="footer-col">
+        <h4 class="footer-col-title">{isEn ? "Privacy & ARCO Requests" : "Atención y Ejercicio ARCO"}</h4>
+        <ul class="footer-links-list">
+          <li>
+            <a href="mailto:icilaboratories@gmail.com">icilaboratories@gmail.com</a>
+          </li>
+          <li>
+            <a href={isEn ? "/en/#account-and-data" : "/#cuenta-y-datos"}>
+              {isEn ? "Deletion procedures" : "Procedimiento de eliminación"}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-col-title">{isEn ? "Ecosystem" : "Ecosistema"}</h4>
+        <ul class="footer-links-list">
+          <li>
+            <a href="https://auth.ici-labs.com" target="_blank" rel="noopener noreferrer">SARA ID (auth.ici-labs.com)</a>
+          </li>
+          <li>
+            <a href="https://sara.ici-labs.com" target="_blank" rel="noopener noreferrer">SARA Web Workspace (sara.ici-labs.com)</a>
+          </li>
+        </ul>
+      </div>
     </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>
+      {isEn
+        ? `© ${currentYear} ICI Laboratories · All rights reserved. The policies published in this repository constitute canonical references for application stores and identity providers.`
+        : `© ${currentYear} ICI Laboratories · Todos los derechos reservados. Las políticas publicadas en este portal constituyen la referencia canónica ante tiendas de aplicaciones y plataformas de autenticación.`}
+    </p>
   </div>
 </footer>
 
 <style>
+  .footer {
+    margin-top: auto;
+    border-top: 1px solid var(--surface-border);
+    background-color: var(--surface);
+    padding: 48px 0 28px 0;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    margin-bottom: 32px;
+  }
+
+  @media (min-width: 860px) {
+    .footer-content {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+  }
+
+  .footer-brand {
+    max-width: 520px;
+  }
+
   .footer-title {
-    font-size: 0.95rem;
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: 4px;
+    margin-bottom: 8px;
   }
 
   .footer-desc {
-    font-size: 0.85rem;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+
+  .footer-team {
+    font-size: 0.8rem;
     color: var(--text-muted);
   }
 
-  .footer-links {
+  .footer-sections {
     display: flex;
+    gap: 48px;
     flex-wrap: wrap;
-    align-items: center;
-    gap: 12px;
-    font-size: 0.85rem;
   }
 
-  .footer-dot {
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-col-title {
+    font-size: 0.825rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .footer-links-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .footer-links-list a {
+    font-size: 0.865rem;
+    color: var(--text-secondary);
+    transition: color var(--transition);
+  }
+
+  .footer-links-list a:hover {
+    color: var(--accent);
+  }
+
+  .footer-bottom {
+    border-top: 1px solid var(--surface-border-subtle);
+    padding-top: 20px;
+    font-size: 0.775rem;
     color: var(--text-muted);
+    line-height: 1.5;
   }
 </style>
