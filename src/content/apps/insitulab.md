@@ -2,10 +2,10 @@
 title: "InSituLab"
 shortDescription: "Herramienta educativa offline-first para el registro y geoetiquetado bajo demanda de reportes de visitas escolares en campo."
 category: "Educación e Investigación"
-lastUpdated: "28 de octubre de 2026"
+lastUpdated: "Octubre 2026"
 platforms: ["Android"]
-developer: "ICI Laboratories"
-collaboration: "Facultad de Ingeniería Electromecánica (FIME) · Universidad de Colima"
+developer: "ICI Laboratories (Club educativo)"
+collaboration: "Asesorado por Dr. Walter Alexander Mata López (Director FIME)"
 contactEmail: "icilaboratories@gmail.com"
 order: 5
 icon: "insitulab"
@@ -19,7 +19,7 @@ accountDeletion:
 offlineOnly: true
 ---
 
-**InSituLab** es una herramienta tecnológica educativa y gratuita desarrollada para facilitar el levantamiento de información y registro de visitas escolares en campo, fruto del trabajo de vinculación académica entre la **Universidad de Colima** (Facultad de Ingeniería Electromecánica - FIME) e **ICI Laboratories**.
+**InSituLab** es una herramienta tecnológica educativa y gratuita desarrollada para facilitar el levantamiento de información y registro de visitas escolares en campo, concebida por **ICI Laboratories** (club educativo independiente de desarrollo tecnológico) bajo el asesoramiento académico del **Dr. Walter Alexander Mata López**, profesor investigador y director de la Facultad de Ingeniería Electromecánica (FIME). ICI Laboratories gestiona esta herramienta de manera autónoma, deslindando totalmente de cualquier responsabilidad operativa, institucional o legal a la Universidad de Colima (UdeC) y a la FIME.
 
 ---
 
@@ -73,8 +73,8 @@ Dado que la aplicación opera bajo un modelo puramente local y no sincroniza dat
 
 El proyecto **InSituLab** es una iniciativa con carácter estrictamente **académico, educativo y de investigación científica**:
 
-- La **Universidad de Colima** e **ICI Laboratories** distribuyen esta herramienta con fines formativos y de vinculación social.
-- La aplicación no persigue actividades comerciales de lucro ni intermediación mercantil.
+- **ICI Laboratories** distribuye esta herramienta con fines formativos y de vinculación social sin fines lucrativos.
+- La aplicación se proporciona "tal cual", deslindando de cualquier responsabilidad institucional a la Universidad de Colima y a la FIME.
 - La aplicación se proporciona "tal cual", sin garantías comerciales implícitas, orientada a enriquecer la práctica pedagógica en ciencias e ingeniería.
 
 ---

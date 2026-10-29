@@ -2,10 +2,10 @@
 title: "SARA Eventos"
 shortDescription: "Plataforma académica e institucional para la gestión de agendas, coordinación de actividades, inscripciones, control de aforo y constancias."
 category: "Gestión de Eventos y Congresos"
-lastUpdated: "28 de octubre de 2026"
+lastUpdated: "Octubre 2026"
 platforms: ["Web", "Móvil"]
-developer: "ICI Laboratories"
-collaboration: "Facultad de Ingeniería Electromecánica (FIME) · Universidad de Colima"
+developer: "ICI Laboratories (Club educativo)"
+collaboration: "Asesorado por Dr. Walter Alexander Mata López (Director FIME)"
 contactEmail: "icilaboratories@gmail.com"
 order: 3
 icon: "events"
@@ -23,7 +23,7 @@ accountDeletion:
 offlineOnly: false
 ---
 
-Esta Política de Privacidad describe el tratamiento de datos personales en **SARA Eventos**, la plataforma del ecosistema SARA desarrollada por **ICI Laboratories** para la planificación, coordinación, inscripción y acreditación de eventos académicos e institucionales (como semanas de ingeniería, simposios, coloquios y congresos estudiantiles, incluyendo ediciones como **TecnoFIME**).
+Esta Política de Privacidad describe el tratamiento de datos personales en **SARA Eventos**, la plataforma desarrollada por **ICI Laboratories** (club educativo independiente de innovación tecnológica) para la planificación, coordinación, inscripción y acreditación de eventos académicos e institucionales (como semanas de ingeniería, simposios y congresos estudiantiles, tales como **TecnoFIME**).
 
 Al inscribirte o participar en cualquier evento gestionado a través de SARA Eventos, se aplican los términos y alcances que se detallan a continuación.
 
@@ -31,10 +31,10 @@ Al inscribirte o participar en cualquier evento gestionado a través de SARA Eve
 
 ## 01. Quién organiza los eventos y delimitación de responsabilidades
 
-Es importante distinguir entre la provisión tecnológica de la plataforma y la coordinación sustantiva de cada actividad:
+Es fundamental distinguir entre la provisión tecnológica de la plataforma y la coordinación sustantiva de cada actividad:
 
-- **Proveedor tecnológico:** **ICI Laboratories** desarrolla, aloja y mantiene la plataforma SARA Eventos, garantizando la seguridad informática, la integridad de las bases de datos y la gestión del servicio.
-- **Entidades y Comités Organizadores:** Cada evento específico alojado en la plataforma (por ejemplo, *TecnoFIME 2026*) es coordinado por una dependencia académica titular, como la **Facultad de Ingeniería Mecánica y Eléctrica (FIME)** de la **Universidad de Colima**, sus academias docentes o comités estudiantiles formalmente acreditados.
+- **Proveedor tecnológico:** **ICI Laboratories** es un club educativo independiente que desarrolla, aloja y mantiene la plataforma SARA Eventos. Su gestión opera de manera autónoma, deslindando totalmente de responsabilidad institucional, operativa o jurídica a la Universidad de Colima (UdeC) y a la Facultad de Ingeniería Electromecánica (FIME), contando con el asesoramiento académico del **Dr. Walter Alexander Mata López**, director de la facultad.
+- **Entidades y Comités Organizadores:** Cada evento específico alojado en la plataforma (por ejemplo, *TecnoFIME*) es coordinado por el comité organizador correspondiente (academias, profesores titulares o comités estudiantiles acreditados), quienes determinan los criterios de admisión y validez curricular.
 
 ### Avisos específicos por evento
 En la interfaz de cada evento se muestra con absoluta transparencia:

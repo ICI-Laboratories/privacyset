@@ -15,12 +15,12 @@ const currentYear = new Date().getFullYear();
       <p class="footer-title">{isEn ? "Privacy Center · ICI Laboratories" : "Centro de privacidad · ICI Laboratories"}</p>
       <p class="footer-desc">
         {isEn
-          ? "Official repository of privacy policies for the SARA ecosystem and applied engineering projects by ICI Laboratories, developed in academic cooperation with the University of Colima and the School of Electromechanical Engineering (FIME)."
-          : "Repositorio central y normativo de políticas de privacidad para el ecosistema SARA y los proyectos de investigación aplicada y desarrollo tecnológico de ICI Laboratories, en vinculación académica con la Universidad de Colima y la Facultad de Ingeniería Electromecánica (FIME)."}
+          ? "ICI Laboratories is an independent student educational tech club for software engineering innovation. All platforms and services are operated autonomously by the club, fully disclaiming institutional liability from the University of Colima (UdeC) and FIME, and counting with the academic advisory of Dr. Walter Alexander Mata López (Director of the faculty)."
+          : "ICI Laboratories es un club educativo independiente de desarrollo e innovación tecnológica. Los proyectos y plataformas son gestionados con total autonomía por el club, deslindando de cualquier responsabilidad institucional, operativa o jurídica a la Universidad de Colima (UdeC) y a la Facultad de Ingeniería Electromecánica (FIME), contando con el asesoramiento académico del Dr. Walter Alexander Mata López, director de la facultad."}
       </p>
       <div class="footer-team">
-        <span>{isEn ? "Data Governance & Privacy Desk" : "Equipo responsable de privacidad y gobernanza de datos"}</span> &middot;
-        <span>{isEn ? "Portal Version:" : "Versión del portal:"} <strong>v2.1.0 (2026)</strong></span>
+        <span>{isEn ? "Educational club · Data governance" : "Club educativo · Gobernanza de datos"}</span> &middot;
+        <span>{isEn ? "Revision:" : "Revisión:"} <strong>{isEn ? "October 2026" : "Octubre 2026"}</strong></span>
       </div>
     </div>
 
@@ -56,8 +56,8 @@ const currentYear = new Date().getFullYear();
   <div class="container footer-bottom">
     <p>
       {isEn
-        ? `© ${currentYear} ICI Laboratories · All rights reserved. The policies published in this repository constitute canonical references for application stores and identity providers.`
-        : `© ${currentYear} ICI Laboratories · Todos los derechos reservados. Las políticas publicadas en este portal constituyen la referencia canónica ante tiendas de aplicaciones y plataformas de autenticación.`}
+        ? `© ${currentYear} ICI Laboratories · Independent educational tech club. Academic advisory: Dr. Walter Alexander Mata López (Director of FIME). Institutional disclaimer: independent from UdeC and FIME.`
+        : `© ${currentYear} ICI Laboratories · Club educativo independiente. Asesoramiento académico: Dr. Walter Alexander Mata López (Director FIME). Deslinde total de responsabilidad de la Universidad de Colima y la FIME.`}
     </p>
   </div>
 </footer>

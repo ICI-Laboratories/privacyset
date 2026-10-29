@@ -2,7 +2,7 @@
 title: "SARA ID — SARA Account"
 shortDescription: "Core identity service, cryptographically protected credentials, unified sessions, and secure access across ICI Laboratories applications."
 category: "Identity & Authentication"
-lastUpdated: "October 28, 2026"
+lastUpdated: "October 2026"
 platforms: ["Web", "Android", "iOS", "API"]
 developer: "ICI Laboratories"
 contactEmail: "icilaboratories@gmail.com"
@@ -31,14 +31,20 @@ By registering a SARA Account or signing in to any connected application through
 
 ## 01. Who manages your account
 
-Your SARA Account is operated and administered by **ICI Laboratories** (an applied research and technological development laboratory specializing in software engineering and artificial intelligence systems), operating in close academic association with the engineering and scientific community of the University of Colima and its School of Electromechanical Engineering (FIME).
+Your SARA Account is operated and administered independently by **ICI Laboratories**, a student-led **educational tech club** dedicated to software engineering innovation and applied artificial intelligence.
 
-- **Data Controller & Operator:** ICI Laboratories.
-- **Official Privacy Channel:** [icilaboratories@gmail.com](mailto:icilaboratories@gmail.com).
+- **Operating Entity:** ICI Laboratories (Independent educational club).
+- **Official Privacy & ARCO Desk:** [icilaboratories@gmail.com](mailto:icilaboratories@gmail.com).
 - **Account Management Portal:** [https://auth.ici-labs.com](https://auth.ici-labs.com).
 
+### Institutional Disclaimer (UdeC & FIME)
+ICI Laboratories operates with full technological and organizational autonomy. All applications, cloud platforms, source code, user databases, and data processing activities are managed exclusively by the educational club. **ICI Laboratories fully disclaims any institutional, legal, technical, or administrative liability from the University of Colima (UdeC) and the School of Electromechanical Engineering (FIME)** arising from the operation of SARA ID or connected services.
+
+### Academic Advisory & Mentorship
+The educational initiatives and engineering standards of ICI Laboratories benefit from the academic guidance and advisory of **Dr. Walter Alexander Mata López**, university research professor and current **Director / Dean of the School of Electromechanical Engineering (FIME)**.
+
 ### Relationship between SARA and ICI Laboratories
-**ICI Laboratories** is the parent technical entity that designs, builds, and hosts the underlying infrastructure. **SARA** (Learning and Academic Performance System) represents the suite of educational and institutional applications developed by the laboratory. **SARA ID** serves as the cross-cutting identity provider that enables students, faculty, event organizers, and researchers to use a single, unified, secure account across all connected tools without duplicating passwords or dispersing credentials.
+**ICI Laboratories** is the independent developing club that architects, builds, and maintains the ecosystem. **SARA** (Learning and Academic Performance System) represents the software and educational suite designed by the club. **SARA ID** is the underlying identity provider enabling users to maintain a single secure account across all projects without dispersing passwords.
 
 ---
 
@@ -201,11 +207,12 @@ Requesting the permanent deletion of your SARA Account initiates the irreversibl
 
 We may update this Privacy Policy periodically to reflect architectural updates or regulatory changes. 
 
-Substantial updates will be published on this page with an updated effective date. When critical changes affect your account governance, notifications will be provided via the portal or your registered email.
+Substantial updates will be published on this portal, indicating the revised version at the bottom. When critical changes affect your account governance, notifications will be provided via the portal or your registered email.
 
 ### Official contact channels
 For questions, clarifications, or privacy requests:
 
-- **Entity:** ICI Laboratories
-- **Privacy & Compliance Desk:** [icilaboratories@gmail.com](mailto:icilaboratories@gmail.com)
+- **Operating Entity:** ICI Laboratories (Independent educational tech club)
+- **Academic Advisory:** Dr. Walter Alexander Mata López (Director of FIME)
+- **Privacy & ARCO Desk:** [icilaboratories@gmail.com](mailto:icilaboratories@gmail.com)
 - **Privacy Center:** [https://privacy.ici-labs.com/en/](https://privacy.ici-labs.com/en/)

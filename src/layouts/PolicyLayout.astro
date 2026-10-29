@@ -90,14 +90,6 @@ const servicesHref = isEn ? '/en/#services' : '/#servicios';
       <div class="policy-meta-bar">
         <div class="meta-item">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <polyline points="12 6 12 12 16 14"></polyline>
-          </svg>
-          <span><strong>{isEn ? "Last updated:" : "Última actualización:"}</strong> {lastUpdated}</span>
-        </div>
-
-        <div class="meta-item">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
             <circle cx="12" cy="7" r="4"></circle>
           </svg>
@@ -230,6 +222,25 @@ const servicesHref = isEn ? '/en/#services' : '/#servicios';
         </div>
         <article class="prose policy-content">
           <slot />
+
+          <div class="policy-audit-footer">
+            <div class="audit-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <div class="audit-text">
+              <p class="audit-rev">
+                <strong>{isEn ? "Document revision:" : "Revisión del documento:"}</strong> {lastUpdated} &middot; {isEn ? "ICI Laboratories Privacy Center" : "Centro de Privacidad de ICI Laboratories"}
+              </p>
+              <p class="audit-disclaimer">
+                {isEn
+                  ? "ICI Laboratories is an independent student educational tech club. We disclaim all institutional liability from the University of Colima (UdeC) and FIME. Academically advised by Dr. Walter Alexander Mata López (Director of FIME)."
+                  : "ICI Laboratories es un club educativo independiente de desarrollo tecnológico. Se deslinda totalmente de cualquier responsabilidad institucional a la Universidad de Colima (UdeC) y a la FIME; proyecto asesorado académicamente por el Dr. Walter Alexander Mata López (director de la facultad)."}
+              </p>
+            </div>
+          </div>
         </article>
       </main>
 
@@ -648,5 +659,39 @@ const servicesHref = isEn ? '/en/#services' : '/#servicios';
   .toc-help-link {
     font-weight: 600;
     color: var(--accent);
+  }
+
+  /* Footer Audit Box */
+  .policy-audit-footer {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-top: 48px;
+    padding: 20px 24px;
+    background: var(--bg-subtle);
+    border: 1px solid var(--surface-border);
+    border-radius: var(--radius-md);
+  }
+
+  .audit-icon {
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .audit-text {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .audit-rev {
+    color: var(--text-primary);
+    margin: 0 0 6px 0 !important;
+  }
+
+  .audit-disclaimer {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    margin: 0 !important;
   }
 </style>

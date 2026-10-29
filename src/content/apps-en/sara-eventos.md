@@ -2,10 +2,10 @@
 title: "SARA Eventos"
 shortDescription: "Academic and institutional event platform for schedule coordination, activity registration, capacity control, and certificates."
 category: "Event & Conference Management"
-lastUpdated: "October 28, 2026"
+lastUpdated: "October 2026"
 platforms: ["Web", "Mobile"]
-developer: "ICI Laboratories"
-collaboration: "School of Electromechanical Engineering (FIME) · University of Colima"
+developer: "ICI Laboratories (Educational club)"
+collaboration: "Advised by Dr. Walter Alexander Mata López (Director of FIME)"
 contactEmail: "icilaboratories@gmail.com"
 order: 3
 icon: "events"
@@ -23,7 +23,7 @@ accountDeletion:
 offlineOnly: false
 ---
 
-This Privacy Policy governs the processing of personal data within **SARA Eventos**, the platform developed by **ICI Laboratories** for managing academic, engineering, and institutional conferences, symposiums, and student summits (such as **TecnoFIME**).
+This Privacy Policy governs the processing of personal data within **SARA Eventos**, the platform developed by **ICI Laboratories** (an independent student educational tech club) for managing academic, engineering, and institutional conferences, symposiums, and student summits (such as **TecnoFIME**).
 
 By registering for or participating in any event coordinated through SARA Eventos, you accept the governance provisions detailed below.
 
@@ -31,10 +31,10 @@ By registering for or participating in any event coordinated through SARA Evento
 
 ## 01. Event organizers and scope of responsibilities
 
-We distinguish between technology hosting and specific event governance:
+We distinguish between technological platform operations and individual event coordination:
 
-- **Technology Provider:** **ICI Laboratories** builds, operates, and secures the platform software, maintaining backend databases and infrastructure reliability.
-- **Event Organizing Committees:** Individual events (such as *TecnoFIME 2026*) are coordinated by specific academic departments, such as the **School of Electromechanical Engineering (FIME)** of the **University of Colima**, department chairs, or accredited faculty committees.
+- **Technology Provider:** **ICI Laboratories** is an independent educational tech club that develops, operates, and secures the software. It operates with full technological autonomy, disclaiming any institutional, legal, or administrative liability from the University of Colima (UdeC) and the School of Electromechanical Engineering (FIME), with the academic advisory of **Dr. Walter Alexander Mata López**, Director of the faculty.
+- **Event Organizing Committees:** Individual events hosted on the platform (such as *TecnoFIME*) are coordinated by specific organizing committees (departments, professors, or student committees), who determine registration criteria, schedules, and certificate eligibility.
 
 ### Clear event-specific disclosure
 Each event hosted on the platform explicitly identifies:

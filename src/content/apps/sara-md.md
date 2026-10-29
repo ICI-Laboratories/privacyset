@@ -2,9 +2,10 @@
 title: "SARA MD"
 shortDescription: "Editor Markdown local-first, rápido y privado para Android y iOS, con soporte para fórmulas LaTeX, diagramas Mermaid y conversión de documentos."
 category: "Productividad y Herramientas"
-lastUpdated: "28 de octubre de 2026"
+lastUpdated: "Octubre 2026"
 platforms: ["Android", "iOS"]
-developer: "ICI Laboratories"
+developer: "ICI Laboratories (Club educativo)"
+collaboration: "Asesorado por Dr. Walter Alexander Mata López (Director FIME)"
 contactEmail: "icilaboratories@gmail.com"
 order: 4
 icon: "docmd"
@@ -18,7 +19,7 @@ accountDeletion:
 offlineOnly: true
 ---
 
-Esta Política de Privacidad describe el tratamiento de la información en **SARA MD**, aplicación móvil desarrollada por **ICI Laboratories**. 
+Esta Política de Privacidad describe el tratamiento de la información en **SARA MD**, aplicación móvil desarrollada de manera independiente por **ICI Laboratories** (club educativo de desarrollo tecnológico asesorado académicamente por el Dr. Walter Alexander Mata López, director de la FIME). ICI Laboratories gestiona sus proyectos de forma autónoma, deslindando totalmente de cualquier responsabilidad institucional, operativa o legal a la Universidad de Colima (UdeC) y a la FIME. 
 
 SARA MD fue concebida desde su arquitectura fundamental como una aplicación **local-first (centrada exclusivamente en el dispositivo)**. Creemos firmemente que tus notas, ideas, fórmulas y documentos te pertenecen de manera absoluta, por lo que la aplicación opera sin rastreo, sin telemetría, sin publicidad y sin recopilación de datos en servidores externos.
 

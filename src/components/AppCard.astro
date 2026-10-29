@@ -86,13 +86,11 @@ const policyHref = isEn ? `/en/${slug}/` : `/${slug}/`;
   </div>
 
   <div class="card-footer">
-    <span class="last-updated">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="10"></circle>
-        <polyline points="12 6 12 12 16 14"></polyline>
-      </svg>
-      {lastUpdated}
-    </span>
+    <div class="card-platforms">
+      {platforms?.map(p => (
+        <span class="platform-chip">{p}</span>
+      ))}
+    </div>
     <a href={policyHref} class="read-policy-btn">
       <span>{isEn ? "Read policy" : "Leer política"}</span>
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -208,12 +206,20 @@ const policyHref = isEn ? `/en/${slug}/` : `/${slug}/`;
     border-top: 1px solid var(--surface-border-subtle);
   }
 
-  .last-updated {
-    font-size: 0.785rem;
-    color: var(--text-muted);
-    display: inline-flex;
-    align-items: center;
+  .card-platforms {
+    display: flex;
+    flex-wrap: wrap;
     gap: 6px;
+  }
+
+  .platform-chip {
+    font-size: 0.725rem;
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    background: var(--bg-subtle);
+    border: 1px solid var(--surface-border-subtle);
+    padding: 2px 7px;
+    border-radius: var(--radius-sm);
   }
 
   .read-policy-btn {

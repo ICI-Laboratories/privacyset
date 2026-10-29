@@ -2,7 +2,7 @@
 title: "SARA ID — Cuenta SARA"
 shortDescription: "Servicio central de identidad, credenciales protegidas, sesiones unificadas y acceso seguro a las aplicaciones de ICI Laboratories."
 category: "Identidad y Autenticación"
-lastUpdated: "28 de octubre de 2026"
+lastUpdated: "Octubre 2026"
 platforms: ["Web", "Android", "iOS", "API"]
 developer: "ICI Laboratories"
 contactEmail: "icilaboratories@gmail.com"
@@ -31,14 +31,20 @@ Al registrar una Cuenta SARA o acceder a cualquier aplicación conectada mediant
 
 ## 01. Quién administra tu cuenta
 
-Tu Cuenta SARA es administrada y operada por **ICI Laboratories** (laboratorio tecnológico de investigación y desarrollo de software y sistemas de inteligencia artificial), con sede y operación vinculada a la comunidad académica y de ingeniería de la Universidad de Colima y su Facultad de Ingeniería Electromecánica (FIME).
+Tu Cuenta SARA es administrada y operada de manera independiente por **ICI Laboratories**, un **club educativo** e iniciativa de desarrollo tecnológico creada por estudiantes apasionados por la ingeniería de software y la inteligencia artificial.
 
-- **Operador responsable:** ICI Laboratories.
+- **Operador responsable:** ICI Laboratories (Club educativo independiente).
 - **Canal de atención y privacidad:** [icilaboratories@gmail.com](mailto:icilaboratories@gmail.com).
 - **Portal de gestión de cuenta:** [https://auth.ici-labs.com](https://auth.ici-labs.com).
 
+### Deslinde de responsabilidad institucional (UdeC y FIME)
+ICI Laboratories opera de forma autónoma. Todas las aplicaciones, plataformas, códigos fuente, bases de datos y tratamientos de información asociados a la Cuenta SARA son gestionados con exclusividad por el club educativo. **Se deslinda totalmente a la Universidad de Colima (UdeC) y a la Facultad de Ingeniería Electromecánica (FIME)** de cualquier responsabilidad institucional, legal, técnica, administrativa o de resguardo de datos derivada del uso de este servicio o de las aplicaciones conectadas.
+
+### Asesoramiento académico
+Las actividades, estándares técnicos y buenas prácticas de ingeniería de ICI Laboratories cuentan con el asesoramiento académico y la mentoría del **Dr. Walter Alexander Mata López**, profesor investigador y quien además se desempeña como **Director de la Facultad de Ingeniería Electromecánica (FIME)**.
+
 ### Relación entre SARA e ICI Laboratories
-**ICI Laboratories** es la entidad técnica matriz que diseña, programa y aloja la infraestructura del ecosistema. **SARA** (Sistema de Aprendizaje y Rendimiento Académico) es la marca y el entorno de aplicaciones educativas e institucionales del laboratorio. **SARA ID** constituye la capa transversal de identidad que permite a estudiantes, docentes, organizadores e investigadores utilizar una única cuenta segura para interactuar con todos los servicios vinculados sin duplicar credenciales ni dispersar contraseñas.
+**ICI Laboratories** es la iniciativa y club desarrollador que diseña, programa y aloja la infraestructura del ecosistema. **SARA** (Sistema de Aprendizaje y Rendimiento Académico) es la marca y el entorno de aplicaciones educativas creadas por el club. **SARA ID** constituye la capa transversal de identidad que permite a los usuarios utilizar una única cuenta segura para interactuar con los diferentes proyectos sin duplicar credenciales ni dispersar contraseñas.
 
 ---
 
@@ -201,11 +207,12 @@ Solicitar la eliminación definitiva de tu Cuenta SARA conlleva la supresión ir
 
 Esta Política de Privacidad podrá actualizarse para reflejar mejoras funcionales, despliegue de nuevos servicios o modificaciones en las regulaciones de protección de datos.
 
-Cualquier cambio sustancial será publicado oportunamente en esta página, actualizando la fecha de vigencia superior. En caso de cambios críticos que afecten los derechos sobre tu cuenta, te notificaremos mediante un aviso en el portal o a través de tu correo registrado.
+Cualquier cambio sustancial será publicado oportunamente en este portal, indicando la versión revisada al calce. En caso de cambios críticos que afecten los derechos sobre tu cuenta, te notificaremos mediante un aviso en el portal o a través de tu correo registrado.
 
 ### Canales oficiales de contacto
 Para resolver cualquier duda sobre esta política o el tratamiento de tus datos personales:
 
-- **Responsable:** ICI Laboratories
-- **Atención de Privacidad, Soporte y Derechos ARCO:** [icilaboratories@gmail.com](mailto:icilaboratories@gmail.com)
+- **Operador:** ICI Laboratories (Club educativo independiente)
+- **Asesoramiento académico:** Dr. Walter Alexander Mata López (Director FIME)
+- **Atención de Privacidad y Derechos ARCO:** [icilaboratories@gmail.com](mailto:icilaboratories@gmail.com)
 - **Centro de Privacidad:** [https://privacy.ici-labs.com](https://privacy.ici-labs.com)

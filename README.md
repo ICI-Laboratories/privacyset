@@ -2,8 +2,12 @@
 
 Portal web oficial y generador estático del **Centro de Privacidad de ICI Laboratories** para las aplicaciones, servicios de identidad y plataformas del ecosistema **SARA**.
 
-- **Dominio de producción:** [https://privacy.ici-labs.com](https://privacy.ici-labs.com)
+- **Naturaleza del desarrollador:** **ICI Laboratories** es un **club educativo** e iniciativa de desarrollo tecnológico independiente gestionada por estudiantes.
+- **Deslinde institucional:** Se deslinda totalmente de cualquier responsabilidad institucional, jurídica u operativa a la **Universidad de Colima (UdeC)** y a la **Facultad de Ingeniería Electromecánica (FIME)**.
+- **Asesoramiento académico:** Contamos con el asesoramiento y mentoría técnica del **Dr. Walter Alexander Mata López**, profesor investigador y director de la facultad (FIME).
+- **Dominio de producción:** [https://privacy.ici-labs.com](https://privacy.ici-labs.com) (Versión multilingüe `ES` / `EN`).
 - **Repositorio canónico:** `privacyset`
+- **Revisión general:** Octubre 2026.
 - **Stack tecnológico:** [Astro 5](https://astro.build/) (Static Site Generation - SSG), TypeScript, Content Collections.
 - **Sistema de diseño:** [ICI Brand Assets](../ici-brand-assets/) (SARA v0.5.0 · Prisma Cognitivo & Glass OS).
 
@@ -13,13 +17,13 @@ Portal web oficial y generador estático del **Centro de Privacidad de ICI Labor
 
 Cada servicio cuenta con una política específica e independiente, accesible en su propia ruta permanente:
 
-| Documento | Alcance y funciones | Ruta canónica | Procedimiento de baja / ARCO |
+| Documento | Alcance y funciones | Ruta en Español | English Route |
 | :--- | :--- | :--- | :--- |
-| **SARA ID — Cuenta SARA** | Servicio de identidad central, credenciales criptográficas, sesiones unificadas, acceso con Google, envío transaccional de correo (*ICI Identity Mail Backend*), aplicaciones conectadas y revocación. | [`/sara-id/`](https://privacy.ici-labs.com/sara-id/) | [`/sara-id/#eliminacion-de-cuenta`](https://privacy.ici-labs.com/sara-id/#eliminacion-de-cuenta) |
-| **SARA — Plataforma educativa** | Asignaturas, tareas multimedia, evaluaciones formativas, retroalimentación pedagógica, SARA Drive, DocMD y asistencia de IA (sin entrenamiento de modelos públicos). | [`/sara/`](https://privacy.ici-labs.com/sara/) | [`/sara/#eliminacion-de-cuenta`](https://privacy.ici-labs.com/sara/#eliminacion-de-cuenta) |
-| **SARA Eventos** | Gestión de agendas, simposios y semanas académicas (ej. *TecnoFIME*), inscripciones, listas de espera, control de aforos, datos compartidos con comités organizadores y folios de constancias. | [`/sara-eventos/`](https://privacy.ici-labs.com/sara-eventos/) | [`/sara-eventos/#eliminacion-de-cuenta`](https://privacy.ici-labs.com/sara-eventos/#eliminacion-de-cuenta) |
-| **SARA MD** | Editor Markdown para Android y iOS con fórmulas LaTeX y diagramas Mermaid. Modelo 100% *local-first* sin sincronización en la nube ni telemetría. | [`/sara-md/`](https://privacy.ici-labs.com/sara-md/) | *N/A (Datos destruidos al desinstalar la app)* |
-| **InSituLab** | Registro y geoetiquetado bajo demanda para visitas escolares de campo. Modelo *offline-first* en vinculación académica con la Universidad de Colima (FIME). | [`/insitulab/`](https://privacy.ici-labs.com/insitulab/) | *N/A (Almacenamiento local exclusivo en el dispositivo)* |
+| **SARA ID — Cuenta SARA** | Servicio de identidad central, credenciales criptográficas, sesiones unificadas, acceso con Google, envío transaccional de correo (*ICI Identity Mail Backend*), aplicaciones conectadas y revocación. | [`/sara-id/`](https://privacy.ici-labs.com/sara-id/) | [`/en/sara-id/`](https://privacy.ici-labs.com/en/sara-id/) |
+| **SARA — Plataforma educativa** | Asignaturas, tareas multimedia, evaluaciones formativas, retroalimentación pedagógica, SARA Drive, DocMD y asistencia de IA (sin entrenamiento de modelos públicos). | [`/sara/`](https://privacy.ici-labs.com/sara/) | [`/en/sara/`](https://privacy.ici-labs.com/en/sara/) |
+| **SARA Eventos** | Gestión de agendas, simposios y semanas académicas (ej. *TecnoFIME*), inscripciones, listas de espera, control de aforos, comités organizadores y folios de constancias. | [`/sara-eventos/`](https://privacy.ici-labs.com/sara-eventos/) | [`/en/sara-eventos/`](https://privacy.ici-labs.com/en/sara-eventos/) |
+| **SARA MD** | Editor Markdown para Android y iOS con fórmulas LaTeX y diagramas Mermaid. Modelo 100% *local-first* sin sincronización en la nube ni telemetría. | [`/sara-md/`](https://privacy.ici-labs.com/sara-md/) | [`/en/sara-md/`](https://privacy.ici-labs.com/en/sara-md/) |
+| **InSituLab** | Registro y geoetiquetado bajo demanda para visitas escolares de campo. Modelo *offline-first* educativo. | [`/insitulab/`](https://privacy.ici-labs.com/insitulab/) | [`/en/insitulab/`](https://privacy.ici-labs.com/en/insitulab/) |
 
 ---
 

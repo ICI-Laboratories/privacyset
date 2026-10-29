@@ -2,10 +2,10 @@
 title: "InSituLab"
 shortDescription: "Educational offline-first utility for on-demand field trip logging and geotagging in practical science courses."
 category: "Education & Research"
-lastUpdated: "October 28, 2026"
+lastUpdated: "October 2026"
 platforms: ["Android"]
-developer: "ICI Laboratories"
-collaboration: "School of Electromechanical Engineering (FIME) · University of Colima"
+developer: "ICI Laboratories (Educational club)"
+collaboration: "Advised by Dr. Walter Alexander Mata López (Director of FIME)"
 contactEmail: "icilaboratories@gmail.com"
 order: 5
 icon: "insitulab"
@@ -19,7 +19,7 @@ accountDeletion:
 offlineOnly: true
 ---
 
-**InSituLab** is a free educational application designed to facilitate field observation logging and academic site visit documentation, created through academic collaboration between the **University of Colima** (School of Electromechanical Engineering - FIME) and **ICI Laboratories**.
+**InSituLab** is a free educational application designed to facilitate field observation logging and academic site visit documentation, built independently by **ICI Laboratories** (a student-led educational tech club) with the academic advisory of **Dr. Walter Alexander Mata López**, professor, researcher, and Director of the School of Electromechanical Engineering (FIME). ICI Laboratories operates with full technological autonomy, disclaiming any institutional or legal liability from the University of Colima (UdeC) and FIME.
 
 ---
 
@@ -73,8 +73,8 @@ Because the application functions strictly offline and maintains no central serv
 
 **InSituLab** is distributed strictly for **academic, educational, and scientific research purposes**:
 
-- The **University of Colima** and **ICI Laboratories** provide this tool to support engineering and scientific education.
-- The software involves no commercial transactions or subscription fees.
+- **ICI Laboratories** distributes this tool strictly for educational and social outreach purposes.
+- The software is provided "as is", disclaiming any institutional liability from the University of Colima and FIME.
 - It is provided "as is" to enrich practical field education without commercial warranties.
 
 ---

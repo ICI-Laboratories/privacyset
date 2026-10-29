@@ -2,10 +2,10 @@
 title: "SARA — Plataforma educativa"
 shortDescription: "Entorno académico para la gestión de asignaturas, entregas de actividades, evaluaciones formativas y asistencia pedagógica con IA."
 category: "Educación y Aprendizaje"
-lastUpdated: "28 de octubre de 2026"
+lastUpdated: "Octubre 2026"
 platforms: ["Web", "Android", "iOS"]
-developer: "ICI Laboratories"
-collaboration: "Facultad de Ingeniería Electromecánica (FIME) · Universidad de Colima"
+developer: "ICI Laboratories (Club educativo)"
+collaboration: "Asesorado por Dr. Walter Alexander Mata López (Director FIME)"
 contactEmail: "icilaboratories@gmail.com"
 order: 2
 icon: "studio"
@@ -23,7 +23,7 @@ accountDeletion:
 offlineOnly: false
 ---
 
-Esta Política de Privacidad describe el tratamiento de datos personales en la plataforma y aplicación educativa **SARA** (Sistema de Aprendizaje y Rendimiento Académico), desarrollada y operada por **ICI Laboratories** en colaboración con la comunidad académica de la **Universidad de Colima** y su **Facultad de Ingeniería Electromecánica (FIME)**.
+Esta Política de Privacidad describe el tratamiento de datos personales en la plataforma y aplicación educativa **SARA** (Sistema de Aprendizaje y Rendimiento Académico), desarrollada y operada de forma independiente por **ICI Laboratories**, un club educativo de desarrollo tecnológico. La gestión de este servicio corresponde exclusivamente al club, deslindando totalmente de responsabilidad institucional, operativa o jurídica a la Universidad de Colima (UdeC) y a la Facultad de Ingeniería Electromecánica (FIME), contando con el asesoramiento académico del **Dr. Walter Alexander Mata López**, director de la facultad.
 
 Al acceder a SARA como estudiante, docente o coordinador académico, el tratamiento de tu información se rige por las directrices aquí establecidas.
 
